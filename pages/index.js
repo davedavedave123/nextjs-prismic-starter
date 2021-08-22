@@ -8,25 +8,34 @@ import {
 } from 'react-device-detect';
 
 import PhotoModal from '../components/PhotoModal';
-import navItems from '../config/navItems';
-import Navbar from '../components/Navbar';
-import NavLink from '../components/NavLink';
-import ServiceWithImage from '../components/ServiceWithImage';
 import Services from '../components/Services';
 import ImageWithText from '../components/ImageWithText1';
-import ImageWithText2 from '../components/ImageWithText2';
-import Button from '../components/Button';
-import Quote from '../components/Quote';
-import Quotes from '../components/Quotes';
-import ContactForm from '../components/ContactForm';
 import Contact from '../components/Contact';
 import Footer from '../components/Footer';
+
+import Card, { CardContent, CardContentList } from '../components/Card';
+import Cards from '../components/Cards';
 
 const images = [
   // {src: '/images/GOPR9291.jpg', alt: 'rock arch', width: 3000, height: 2250},
   { src: '/images/GOPR9291.jpg', alt: 'rock arch', width: 3000, height: 1000 },
   { src: '/images/GOPR9300.jpg', alt: 'big rock', width: 3000, height: 1858 },
   { src: '/images/GOPR9304.jpg', alt: 'stoked', width: 3000, height: 2250 },
+];
+
+const cardContentList = [
+  {
+    icon: { src: '/icons/tick.svg', alt: 'tick' },
+    text: 'first line description of what we do',
+  },
+  {
+    icon: { src: '/icons/tick.svg', alt: 'tick' },
+    text: 'second line description',
+  },
+  {
+    icon: { src: '/icons/tick.svg', alt: 'tick' },
+    text: 'third line medium description',
+  },
 ];
 
 export default function Home() {
@@ -94,6 +103,17 @@ export default function Home() {
         <Quotes className='px-10' /> */}
         <Contact />
         {/* <Button title='check' className='text-white bg-black' disabled /> */}
+        {/* <Card src='/images/GOPR9291.jpg' alt='something'>
+          <CardContent
+            smallTitle='Some Small Title'
+            bigTitle='Big Title'
+            buttonTitle='FIND OUT MORE'
+            buttonOnClick={() => alert('click')}
+          >
+            <CardContentList list={cardContentList} />
+          </CardContent>
+        </Card> */}
+        <Cards />
         <Footer />
       </div>
     </div>
