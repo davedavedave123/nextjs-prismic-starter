@@ -13,6 +13,7 @@ export default function animateOnScroll(elm, options, scrollTriggerOptions) {
 
   const elms = gsap.utils.toArray('.anim-up');
 
+  // For any animation delays add it like this data-animdelay={0.2}
   elms.forEach(elm => {
     gsap.from(elm, {
       scrollTrigger: {
@@ -23,9 +24,13 @@ export default function animateOnScroll(elm, options, scrollTriggerOptions) {
         ...scrollTriggerOptions,
       },
       ...DEFAULTS,
+      delay: elm.dataset.animdelay,
       ...options,
     });
   });
+
+  const elmCheck = gsap.utils.toArray('.anim-card');
+  console.log('elmCheck delay', elmCheck[0]?.dataset?.animdelay);
 
   const parallaxElms = gsap.utils.toArray('.parallax');
 
@@ -33,7 +38,7 @@ export default function animateOnScroll(elm, options, scrollTriggerOptions) {
     gsap.from(elm, {
       scrollTrigger: {
         trigger: elm,
-        start: 'top bottom',
+        start: `top bottom`,
         end: 'bottom top',
         markers: false,
         toggleActions: 'play none none reset',

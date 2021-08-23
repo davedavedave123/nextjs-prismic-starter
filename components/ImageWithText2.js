@@ -25,9 +25,16 @@ export default function ImageWithText2({ title, body, img = IMG, children }) {
         className={`relative w-full h-96 overflow-hidden`}
         style={{ height: '40vw', minHeight: '50vh', maxHeight: '60vh' }}
       >
-        {img.url && (
-          <Image src={img.url} alt={img.alt} layout='fill' objectFit='cover' />
-        )}
+        <div className='relative w-full parallax' style={{ height: '150%' }}>
+          {img.url && (
+            <Image
+              src={img.url}
+              alt={img.alt}
+              layout='fill'
+              objectFit='cover'
+            />
+          )}
+        </div>
       </div>
       {/* Text wrapper */}
       <div
@@ -36,7 +43,11 @@ export default function ImageWithText2({ title, body, img = IMG, children }) {
       >
         <div className='flex flex-col items-center text-center'>
           <h2 className='anim-up text-4xl text-white'>{title}</h2>
-          {body && <p className='text-white pt-5'>{body}</p>}
+          {body && (
+            <p data-animdelay={0.3} className='anim-up text-white pt-5'>
+              {body}
+            </p>
+          )}
           {children}
         </div>
       </div>

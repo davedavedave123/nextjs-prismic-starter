@@ -61,6 +61,7 @@ export default function TextInput({
   textArea,
   style,
   iconClassName,
+  wrapperClassName,
   ...otherProps
 }) {
   // return <div>nothing here</div>;
@@ -72,7 +73,7 @@ export default function TextInput({
         ...containerStyle,
         justifyContent: submitIcon ? 'space-between' : 'flex-start',
       }}
-      className={`py-1 px-4 my-3 relative rounded-xl border border-black flex ${className}`}
+      className={`py-1 px-4 my-3 relative rounded-xl border border-black flex ${wrapperClassName}`}
     >
       {icon && (
         <div style={styleIcon} className={`mr-3 flex ${iconClassName}`}>

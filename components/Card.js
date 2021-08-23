@@ -54,11 +54,12 @@ export const CardContent = ({
   );
 };
 
-export default function Card({ src, alt, children }) {
+export default function Card({ src, alt, children, delay }) {
   return (
     <div
-      className='anim-up w-80 h-96 flex-shrink-0 rounded-xl overflow-hidden relative shadow-xl m-20'
+      className='anim-up anim-card w-80 h-96 flex-shrink-0 rounded-xl overflow-hidden relative shadow-xl my-20'
       style={{ height: '40rem' }}
+      data-animdelay={delay}
     >
       <div className='w-full h-1/2 relative'>
         <Image src={src} alt={alt} layout='fill' objectFit='cover' />

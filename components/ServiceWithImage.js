@@ -21,9 +21,11 @@ export default function ServiceWithImage({
   wrapperClassName,
 }) {
   return (
-    <div className={`flex flex-col items-center w-full ${wrapperClassName}`}>
+    <div
+      className={`flex flex-col items-center w-full py-10 ${wrapperClassName}`}
+    >
       <div
-        className={`w-32 h-32 p-4 sm:w-40 sm:h-40 sm:p-6 overflow-hidden rounded-full flex justify-center items-center relative ${imgWrapperClassName}`}
+        className={`w-40 h-40 p-4 sm:w-60 sm:h-60 sm:p-6 overflow-hidden rounded-full flex justify-center items-center relative ${imgWrapperClassName}`}
         // className="relative rounded-full"
         // style={{
         //   height: "12rem",

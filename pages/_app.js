@@ -1,19 +1,17 @@
+import { useEffect } from 'react';
 import MasterContextProvider from '../context/MasterContextProvider';
 import '../styles/globals.css';
+import { useRouter } from 'next/router';
 
 import Navbar from '../components/Navbar';
 import NavLink from '../components/NavLink';
 import navItems from '../config/navItems';
 import { useNavMenu } from '../context/navMenu';
-import animateOnScroll from '../utils/animateOnScroll';
-import { useEffect } from 'react';
+
+import * as ga from '../lib/ga';
 
 const Wrapper = ({ Component, pageProps }) => {
   const navMenuOpen = useNavMenu();
-
-  useEffect(() => {
-    animateOnScroll();
-  }, []);
 
   return (
     <div className={`w-screen ${navMenuOpen && ''}`}>
@@ -29,6 +27,20 @@ const Wrapper = ({ Component, pageProps }) => {
 };
 
 function MyApp({ Component, pageProps }) {
+  const router = useRouter();
+
+  useEffect(() => {
+    const handleRouteChange = url => {
+      ga.pageView(url);
+    };
+
+    //When the component is mounted, subscribe to router changes
+    //and log those page views
+    router.events.on('routeChangeComplete', handleRouteChange);
+
+    return () => router.events.off('routeChangeComplete', handleRouteChange);
+  }, [router.events]);
+
   return (
     <MasterContextProvider>
       <Wrapper Component={Component} pageProps={pageProps} />

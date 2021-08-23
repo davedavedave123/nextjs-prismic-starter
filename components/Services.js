@@ -3,17 +3,17 @@ import ServiceWithImage from './ServiceWithImage';
 
 const SERVICES = [
   {
-    img: { url: '/images/GOPR9291.jpg', alt: 'something' },
+    img: { url: '/images/manager.png', alt: 'something' },
     title: 'We Do Work',
     body: "This is some text explaining why we're better at doing work",
   },
   {
-    img: { url: '/images/GOPR9300.jpg', alt: 'something' },
+    img: { url: '/images/welder.png', alt: 'something' },
     title: 'We Do Work',
     body: "This is some text explaining why we're better at doing work",
   },
   {
-    img: { url: '/images/GOPR9304.jpg', alt: 'something' },
+    img: { url: '/images/office-worker.png', alt: 'something' },
     title: 'We Do Work',
     body: "This is some text explaining why we're better at doing work",
   },

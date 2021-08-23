@@ -18,7 +18,7 @@ export default function Contact() {
         ref={imgRef}
         style={{ height: imgHeight }}
       >
-        <Image src='/images/GOPR9291.jpg' layout='fill' objectFit='cover' />
+        <Image src='/images/contact-us.png' layout='fill' objectFit='cover' />
       </div>
       <div className='anim-up w-full h-full flex flex-col justify-center p-10'>
         <h2 className=''>Keep in touch</h2>

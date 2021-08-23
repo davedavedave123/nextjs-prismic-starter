@@ -98,7 +98,7 @@ export default function ContactForm({ variant = 1 }) {
           style={{ fontWeight: 500 }}
           icon={icon.user}
           styleIcon={{ width: 25 }}
-          className={formFieldClassName}
+          wrapperClassName={`${formFieldClassName}`}
         />
         <FormField
           name='email'
@@ -108,7 +108,7 @@ export default function ContactForm({ variant = 1 }) {
           type='email'
           icon={icon.email}
           styleIcon={{ width: 25 }}
-          className={formFieldClassName}
+          wrapperClassName={`${formFieldClassName}`}
         />
         <FormField
           name='phone'
@@ -118,7 +118,7 @@ export default function ContactForm({ variant = 1 }) {
           inputmode='tel'
           icon={icon.phone}
           styleIcon={{ width: 25 }}
-          className={formFieldClassName}
+          wrapperClassName={`${formFieldClassName}`}
         />
         <FormField
           name='message'
@@ -132,7 +132,7 @@ export default function ContactForm({ variant = 1 }) {
             resize: 'none',
           }}
           containerStyle={styles.textArea}
-          className={formFieldClassName}
+          wrapperClassName={`${formFieldClassName}`}
         />
         <SubmitButton
           title={
@@ -145,7 +145,7 @@ export default function ContactForm({ variant = 1 }) {
           style={styles.button}
           disabled={submitted || submitting || errorSubmitting}
           spinner={submitting}
-          className={submitClassName}
+          className={`${submitClassName}`}
         />
         <ErrorMessage
           visible={errorSubmitting}

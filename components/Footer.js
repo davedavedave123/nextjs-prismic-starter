@@ -19,8 +19,8 @@ const Link = ({ item }) => (
 const Contact = () => (
   <div className='flex flex-col pb-10 my-10 border-b border-gray-300 lg:border-0 lg:block'>
     <div>
-      <div className='w-60 h-60 relative'>
-        <Image src='/images/GOPR9291.jpg' layout='fill' objectFit='cover' />
+      <div className='w-60 h-10 relative'>
+        <Image src='/images/logo.png' layout='fill' objectFit='cover' />
       </div>
       <div className='py-5'>
         <div>{contact?.details?.addressLine1}</div>
