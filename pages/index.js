@@ -23,9 +23,9 @@ import animateOnScroll from '../utils/animateOnScroll';
 
 const images = [
   // {src: '/images/GOPR9291.jpg', alt: 'rock arch', width: 3000, height: 2250},
-  { src: '/images/GOPR9291.jpg', alt: 'rock arch', width: 3000, height: 1000 },
-  { src: '/images/GOPR9300.jpg', alt: 'big rock', width: 3000, height: 1858 },
-  { src: '/images/GOPR9304.jpg', alt: 'stoked', width: 3000, height: 2250 },
+  { src: '/images/digger.jpg', alt: 'rock arch', width: 3000, height: 1000 },
+  { src: '/images/quarry.jpg', alt: 'big rock', width: 3000, height: 1858 },
+  { src: '/images/snow.jpg', alt: 'stoked', width: 3000, height: 2250 },
 ];
 
 const cardContentList = [
@@ -61,13 +61,16 @@ export default function Home() {
       </Head>
 
       <div className='w-screen flex flex-col justify-center items-center'>
-        {/* <button onClick={() => setPhotoModalVisible(true)}>Show Photos</button> */}
+        <button onClick={() => setPhotoModalVisible(true)}>Show Photos</button>
 
         <PhotoModal
           images={images}
           visible={photoModalVisible}
           photoIndex={1}
-          closeModal={() => setPhotoModalVisible(false)}
+          closeModal={() => {
+            // alert('click');
+            setPhotoModalVisible(false);
+          }}
         />
         <Services />
         <ImageWithText

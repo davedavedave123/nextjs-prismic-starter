@@ -1,7 +1,32 @@
 import React, { useEffect, useRef, useState, forwardRef } from 'react';
 import { gsap } from 'gsap';
+import Modal from 'react-modal';
 
-import Div100vh from 'react-div-100vh';
+// import Div100vh from 'react-div-100vh';
+// import useWindowSize from '../hooks/useWindowResize';
+
+const customStyles = {
+  overlay: {
+    backgroundColor: 'rgba(0,0,0,0.8)',
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    zIndex: 3000,
+    height: '100vh',
+    width: '100vw',
+  },
+  content: {
+    // top: '50%',
+    // left: '50%',
+    // right: 'auto',
+    // bottom: 'auto',
+    // marginRight: '-50%',
+    // transform: 'translate(-50%, -50%)',
+    // width: 'auto',
+    // height: 'auto',
+    position: 'relative',
+  },
+};
 
 const Backdrop = forwardRef(
   (
@@ -12,12 +37,18 @@ const Backdrop = forwardRef(
       onBackdropClick,
       style_modalWrapper,
       fadeIn = false,
+      modalWidth,
+      modalHeight,
+      modalWrapperClass,
+      modalWrapperStyle,
     },
     ref
   ) => {
     const backdropRef = useRef(null);
     const [mounted, setMounted] = useState(false);
     const backdropId = 'backdropId';
+
+    Modal.setAppElement('#__next');
 
     const handleBackdropClick = event => {
       if (event.target.id === backdropId) onBackdropClick();
@@ -62,14 +93,42 @@ const Backdrop = forwardRef(
 
     return (
       <>
-        <Div100vh style={{ ...styles.backdrop, ...style }} ref={backdropRef} />
-        <Div100vh
-          style={{ ...styles.modalWrapper, ...style_modalWrapper }}
-          id={backdropId}
-          // ref={ref}
+        <Modal
+          isOpen={visible}
+          onRequestClose={onBackdropClick}
+          // style={{ ...customStyles, width: modalWidth, height: modalHeight }}
+          style={customStyles}
         >
-          {children}
-        </Div100vh>
+          {/* <div
+            style={{ ...styles.backdrop, ...style }}
+            className='w-screen h-screen'
+            ref={backdropRef}
+          /> */}
+          {/* <div
+            style={{ ...styles.modalWrapper, ...style_modalWrapper }}
+            className='w-screen h-screen'
+            id={backdropId}
+            // ref={ref}
+          > */}
+          {/* {children} */}
+          {/* </div> */}
+          <div
+            id={backdropId}
+            className={`fixed top-0 left-0 w-screen h-screen ${modalWrapperClass}`}
+            style={modalWrapperStyle}
+          >
+            {/* <div
+              style={{
+                // width: modalWidth,
+                // height: modalHeight,
+                ...modalWrapperStyle,
+              }}
+              className='w-full h-full'
+            > */}
+            {children}
+            {/* </div> */}
+          </div>
+        </Modal>
       </>
     );
   }
