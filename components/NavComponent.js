@@ -54,6 +54,7 @@ const Nav = forwardRef(
     );
   }
 );
+Nav.displayName = 'NavComponent';
 
 const styles = {
   li: {

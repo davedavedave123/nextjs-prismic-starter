@@ -1,7 +1,6 @@
 import React, { forwardRef } from 'react';
 import useBreakPoints from '../hooks/useBreakPoints';
 import BurgerBtn from './BurgerBtn';
-import { Div } from './ResponsiveElement';
 import { useNavMenu, useSetNavMenu } from '../context/navMenu';
 import NavComponent from './NavComponent';
 // import unstyled from '../utility/unstyled';

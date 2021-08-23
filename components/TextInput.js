@@ -120,7 +120,12 @@ export default function TextInput({
           disabled={disabled}
           style={{ right: 0 }}
         >
-          <img src={submitIcon} style={styleSubmitIcon} />
+          <Image
+            src={submitIcon}
+            style={styleSubmitIcon}
+            layout='fill'
+            objectFit='cover'
+          />
         </button>
       )}
     </div>
@@ -177,6 +182,7 @@ const styles = {
     alignItems: 'center',
     borderRadius: 15,
     backgroundColor: colors.medium,
+    position: 'relative',
   },
   textInput: {
     backgroundColor: 'transparent',
