@@ -24,7 +24,7 @@ const Input = ({ className, textArea, value, style, ...otherProps }) => {
   return (
     <input
       style={{ ...styles.textInput, ...style }}
-      placeholderTextColor={colors.medium}
+      placeholdertextcolor={colors.medium}
       value={value}
       className={className}
       {...otherProps}
@@ -115,10 +115,14 @@ export default function TextInput({
       )}
       {submitIcon && (
         <button
-          style={{ ...styles.buttonUnstyled, ...styles.submitWrapper }}
+          style={{
+            right: 0,
+            ...styles.buttonUnstyled,
+            ...styles.submitWrapper,
+          }}
           onClick={onSubmit}
           disabled={disabled}
-          style={{ right: 0 }}
+          // style={{ right: 0 }}
         >
           <Image
             src={submitIcon}
