@@ -51,7 +51,12 @@ const SocialLink = ({ icon, to }) => {
 
   return (
     <div className='py-3'>
-      <a href={to} target='_blank' className='relative w-10 h-10 my-10'>
+      <a
+        href={to}
+        target='_blank'
+        rel='noreferrer'
+        className='relative w-10 h-10 my-10'
+      >
         <div className='w-10 h-10 relative'>
           <Image src={icon} layout='fill' objectFit='cover' />
         </div>

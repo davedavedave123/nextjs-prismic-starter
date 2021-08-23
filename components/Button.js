@@ -1,7 +1,8 @@
+import Image from 'next/image';
 import React from 'react';
 
 const Spinner = () => {
-  return <img src='/icons/spinner3.gif' height='20' width='20' />;
+  return <Image src='/icons/spinner3.gif' height='20' width='20' />;
   // return <Text>hi</Text>;
 };
 

@@ -134,6 +134,8 @@ const Backdrop = forwardRef(
   }
 );
 
+Backdrop.displayName = 'Backdrop';
+
 export default Backdrop;
 
 const styles = {

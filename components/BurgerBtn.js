@@ -20,6 +20,7 @@ const TopBar = forwardRef(({ thickness }, ref) => {
     />
   );
 });
+TopBar.displayName = 'TopBar';
 
 const MidBar = forwardRef(({ thickness, alignLeft }, ref) => {
   thickness = thickness || 1;
@@ -37,6 +38,7 @@ const MidBar = forwardRef(({ thickness, alignLeft }, ref) => {
     />
   );
 });
+MidBar.displayName = 'MidBar';
 
 const BottomBar = forwardRef(({ thickness, alignLeft, botBarWidth }, ref) => {
   thickness = thickness || 1;
@@ -54,6 +56,7 @@ const BottomBar = forwardRef(({ thickness, alignLeft, botBarWidth }, ref) => {
     />
   );
 });
+BottomBar.displayName = 'BottomBar';
 
 export default function BurgerBtn({
   onClick,
