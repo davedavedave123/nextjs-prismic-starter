@@ -1,6 +1,6 @@
 import contact from '../../config/contact';
 
-async function contact(req, res) {
+async function contactApi(req, res) {
   require('dotenv').config();
 
   const { fullName, message, email } = req.body;
@@ -37,4 +37,4 @@ async function contact(req, res) {
   }
 }
 
-export default contact;
+export default contactApi;
