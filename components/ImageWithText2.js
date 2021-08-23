@@ -1,5 +1,7 @@
 import Image from 'next/image';
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
+
+import animateOnScroll from '../utils/animateOnScroll';
 
 const IMG = {
   url: '/images/GOPR9291.jpg',
@@ -10,6 +12,12 @@ const IMG = {
 };
 
 export default function ImageWithText2({ title, body, img = IMG, children }) {
+  const titleRef = useRef(null);
+
+  // useEffect(() => {
+  //   animateOnScroll();
+  // }, []);
+
   return (
     <div className='w-full relative flex'>
       {/* Image wrapper */}
@@ -27,7 +35,7 @@ export default function ImageWithText2({ title, body, img = IMG, children }) {
         style={{ backgroundColor: 'rgba(0,0,0,0.5)' }}
       >
         <div className='flex flex-col items-center text-center'>
-          <h2 className='text-4xl text-white '>{title}</h2>
+          <h2 className='anim-up text-4xl text-white'>{title}</h2>
           {body && <p className='text-white pt-5'>{body}</p>}
           {children}
         </div>

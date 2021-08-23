@@ -1,4 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
+import Div100Vh from 'react-div-100vh';
 
 import NavComponent from './NavComponent';
 import navItems from '../config/navItems';
@@ -32,12 +33,20 @@ export default function NavMobileMenu() {
 
   if (showMenu)
     return (
-      <NavComponent
-        ref={nav}
-        navClassName='fixed opacity-0 z-10 bg-white top-0 left-0 w-screen h-screen flex flex-col justify-center items-center'
-        data={navItems}
-        renderItem={({ item }) => <NavLink item={item} />}
-      />
+      <div
+        className='fixed z-10 top-0 left-0 w-screen h-screen'
+        data-options='scrolltop:false'
+      >
+        <NavComponent
+          ref={nav}
+          navClassName='opacity-0 z-10 bg-white w-full h-full flex flex-col justify-center items-center'
+          data={navItems}
+          renderItem={({ item }) => (
+            <NavLink item={item} underlineClassName='ml-2' />
+          )}
+          liClassName='my-10'
+        />
+      </div>
     );
 
   return null;

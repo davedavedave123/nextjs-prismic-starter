@@ -1,6 +1,5 @@
+import React, { useRef, useEffect, useState } from 'react';
 import Image from 'next/image';
-import React from 'react';
-import useBreakPoints from '../hooks/useBreakPoints';
 
 const IMG = {
   url: '/images/GOPR9291.jpg',
@@ -11,14 +10,21 @@ const IMG = {
 };
 
 export default function ImageWithText({ title, body, img = IMG, children }) {
-  const { isLgDown } = useBreakPoints();
+  const imgRef = useRef(null);
+  const [imgHeight, setImgHeight] = useState(200);
+
+  useEffect(() => {
+    if (imgRef?.current)
+      setImgHeight(imgRef?.current?.getBoundingClientRect()?.width);
+  }, [imgRef]);
 
   return (
-    <div className='w-full relative h-auto md:flex-row flex-col grid md:grid-cols-2 md:grid-rows-1 grid-cols-1 grid-rows-2'>
+    <div className='w-full relative h-auto md:grid md:grid-cols-2 md:grid-rows-1 grid-cols-1 grid-rows-2'>
       {/* Image wrapper */}
       <div
         className={`relative w-full h-full overflow-hidden`}
-        // style={{ maxHeight: '50vh' }}
+        ref={imgRef}
+        style={{ height: imgHeight }}
       >
         {img.url && (
           <Image src={img.url} alt={img.alt} layout='fill' objectFit='cover' />
@@ -26,7 +32,6 @@ export default function ImageWithText({ title, body, img = IMG, children }) {
       </div>
       {/* Text wrapper */}
       <div
-        // className='border-t-2 relative border-b-2 border-black p-10 flex justify-center items-center'
         className='relative p-5 md:p-10 md:flex justify-center items-center'
         style={{ minHeight: '50vw', maxHeight: '100vh' }}
       >

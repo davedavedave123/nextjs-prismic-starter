@@ -2,20 +2,7 @@ import React from 'react';
 
 import Card, { CardContent, CardContentList } from './Card';
 
-// const cardContentList = [
-//   {
-//     icon: { src: '/icons/tick.svg', alt: 'tick' },
-//     text: 'first line description of what we do',
-//   },
-//   {
-//     icon: { src: '/icons/tick.svg', alt: 'tick' },
-//     text: 'second line description',
-//   },
-//   {
-//     icon: { src: '/icons/tick.svg', alt: 'tick' },
-//     text: 'third line medium description',
-//   },
-// ];
+const tickIcon = { src: '/icons/tick.svg', alt: 'tick' };
 
 const cardsContent = [
   {
@@ -25,15 +12,15 @@ const cardsContent = [
     onClick: () => alert('click 1'),
     content: [
       {
-        icon: { src: '/icons/tick.svg', alt: 'tick' },
+        icon: tickIcon,
         text: 'first line description of what we do',
       },
       {
-        icon: { src: '/icons/tick.svg', alt: 'tick' },
+        icon: tickIcon,
         text: 'second line description',
       },
       {
-        icon: { src: '/icons/tick.svg', alt: 'tick' },
+        icon: tickIcon,
         text: 'third line medium description',
       },
     ],
@@ -45,15 +32,15 @@ const cardsContent = [
     onClick: () => alert('click 2'),
     content: [
       {
-        icon: { src: '/icons/tick.svg', alt: 'tick' },
+        icon: tickIcon,
         text: 'first line description of what we do',
       },
       {
-        icon: { src: '/icons/tick.svg', alt: 'tick' },
+        icon: tickIcon,
         text: 'second line description',
       },
       {
-        icon: { src: '/icons/tick.svg', alt: 'tick' },
+        icon: tickIcon,
         text: 'third line medium description',
       },
     ],
@@ -62,7 +49,7 @@ const cardsContent = [
 
 export default function Cards() {
   return (
-    <div className='w-full relative flex flex-col items-center md:flex-row md:justify-center'>
+    <div className='w-full relative flex flex-col items-center lg:flex-row lg:justify-center'>
       {cardsContent.map((card, index) => (
         <Card key={`card-${index}`} src={card.img.src} alt={card.img.alt}>
           <CardContent

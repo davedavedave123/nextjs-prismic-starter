@@ -32,7 +32,12 @@ const Nav = forwardRef(
     const RenderItem = renderItem;
 
     return (
-      <nav style={style_nav} ref={ref} className={navClassName}>
+      <nav
+        style={style_nav}
+        ref={ref}
+        className={navClassName}
+        data-options='scrolltop:false'
+      >
         <ul style={style_ul} className={ulClassName}>
           {data.map(item => (
             <li

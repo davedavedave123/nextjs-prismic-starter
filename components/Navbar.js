@@ -62,7 +62,7 @@ export default function Navbar({
       <NavMobileMenu />
       <div
         style={style_nav}
-        className={`border-b border-black relative flex items-center justify-between ${navClassName}`}
+        className={`bg-white sticky z-30 top-0 left-0 w-full flex items-center justify-between ${navClassName}`}
       >
         {/* Brand logo */}
         <div className='relative pl-5'>

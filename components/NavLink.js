@@ -10,7 +10,7 @@ import animate from '../utils/animate';
 // context
 import { useNavMenu, useSetNavMenu } from '../context/navMenu';
 
-export default function NavLink({ item }) {
+export default function NavLink({ item, underlineClassName }) {
   const setMenuOpen = useSetNavMenu();
   const router = useRouter();
   const barRef = useRef(null);
@@ -36,7 +36,10 @@ export default function NavLink({ item }) {
       >
         <span>{item.title}</span>
         <div className='absolute -bottom-3 px-8 w-full left-0 h-1'>
-          <div className={`${barWidth} h-full bg-black`} ref={barRef} />
+          <div
+            className={`${barWidth} h-full bg-black ${underlineClassName}`}
+            ref={barRef}
+          />
         </div>
       </a>
     </_Link>

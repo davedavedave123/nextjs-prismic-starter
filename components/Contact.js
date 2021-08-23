@@ -12,7 +12,7 @@ export default function Contact() {
   }, [imgRef]);
 
   return (
-    <div className='relative w-full grid grid-cols-1 grid-rows-2 lg:grid-cols-2 lg:grid-rows-1'>
+    <div className='relative w-full lg:grid grid-cols-1 grid-rows-2 lg:grid-cols-2 lg:grid-rows-1'>
       <div
         className='w-full h-full relative'
         ref={imgRef}
@@ -20,7 +20,7 @@ export default function Contact() {
       >
         <Image src='/images/GOPR9291.jpg' layout='fill' objectFit='cover' />
       </div>
-      <div className='w-full h-full flex flex-col justify-center p-10'>
+      <div className='anim-up w-full h-full flex flex-col justify-center p-10'>
         <h2 className=''>Keep in touch</h2>
         <ContactForm />
       </div>

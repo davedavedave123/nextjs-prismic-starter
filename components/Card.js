@@ -57,7 +57,7 @@ export const CardContent = ({
 export default function Card({ src, alt, children }) {
   return (
     <div
-      className='w-80 h-96 rounded-xl overflow-hidden relative shadow-2xl m-20'
+      className='anim-up w-80 h-96 flex-shrink-0 rounded-xl overflow-hidden relative shadow-xl m-20'
       style={{ height: '40rem' }}
     >
       <div className='w-full h-1/2 relative'>
