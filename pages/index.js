@@ -43,6 +43,21 @@ const cardContentList = [
   },
 ];
 
+const Hero = () => (
+  <div className='w-full h-screen relative flex justify-center items-center'>
+    <div className='absolute top-0 left-0 w-full h-full'>
+      <Image src='/images/crane.jpg' layout='fill' objectFit='cover' />
+    </div>
+    <div className='w-3/4 h-1/2 z-10'>
+      <h1>Big brand message</h1>
+      <h3 className='max-w-3xl'>
+        Some other message, just a little smaller. We care about things.
+      </h3>
+      <Button title='CALL TO ACTION' />
+    </div>
+  </div>
+);
+
 export default function Home() {
   const [photoModalVisible, setPhotoModalVisible] = useState(false);
 
@@ -61,6 +76,7 @@ export default function Home() {
       </Head>
 
       <div className='w-screen flex flex-col justify-center items-center'>
+        <Hero />
         <button onClick={() => setPhotoModalVisible(true)}>Show Photos</button>
 
         <PhotoModal

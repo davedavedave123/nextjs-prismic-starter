@@ -31,3 +31,7 @@ h4 {
 * {
   box-sizing: border-box;
 }
+
+.black {
+  background-color: black;
+}

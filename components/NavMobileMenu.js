@@ -34,7 +34,7 @@ export default function NavMobileMenu() {
   if (showMenu)
     return (
       <div
-        className='fixed z-10 top-0 left-0 w-screen h-screen'
+        className='fixed z-50 top-0 left-0 w-screen h-screen'
         data-options='scrolltop:false'
       >
         <NavComponent

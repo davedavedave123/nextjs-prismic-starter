@@ -19,7 +19,7 @@ export default function Button({
   const NOTdisabledClassName = !disabled && 'hover:bg-white hover:text-black';
   return (
     <button
-      className={`py-2 px-5 border relative border-black text-black ${disabledClassName} ${NOTdisabledClassName} rounded-full ${className}`}
+      className={`py-2 px-5 border border-black bg-yellow relative text-black ${disabledClassName} ${NOTdisabledClassName} rounded-full ${className}`}
       onClick={() => {
         if (!disabled) onClick();
       }}

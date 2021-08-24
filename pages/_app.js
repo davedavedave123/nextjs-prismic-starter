@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { useEffect, useRef } from 'react';
 import MasterContextProvider from '../context/MasterContextProvider';
 import '../styles/globals.css';
 import { useRouter } from 'next/router';
@@ -14,15 +14,15 @@ const Wrapper = ({ Component, pageProps }) => {
   const navMenuOpen = useNavMenu();
 
   return (
-    <div className={`w-screen ${navMenuOpen && ''}`}>
+    <>
       <Navbar
         data={navItems}
         renderItem={({ item }) => <NavLink item={item} />}
-        brandLogo={() => <div className='text-2xl'>hi this is the logo</div>}
-        navClassName='absolute top-0 left-0'
       />
-      <Component {...pageProps} />
-    </div>
+      <div className={`w-screen ${navMenuOpen && ''}`}>
+        <Component {...pageProps} />
+      </div>
+    </>
   );
 };
 
