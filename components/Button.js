@@ -16,10 +16,11 @@ export default function Button({
   ...otherProps
 }) {
   const disabledClassName = disabled && 'cursor-default opacity-50';
-  const NOTdisabledClassName = !disabled && 'hover:bg-white hover:text-black';
+  const NOTdisabledClassName =
+    !disabled && 'hover:bg-orange-light hover:text-black';
   return (
     <button
-      className={`py-2 px-5 border border-black bg-yellow relative text-black ${disabledClassName} ${NOTdisabledClassName} rounded-full ${className}`}
+      className={`py-2 px-5 border-black bg-orange relative text-black ${disabledClassName} ${NOTdisabledClassName} ${className}`}
       onClick={() => {
         if (!disabled) onClick();
       }}

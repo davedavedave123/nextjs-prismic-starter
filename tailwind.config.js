@@ -4,7 +4,11 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        yellow: '#FAC93C',
+        // orange: '#FA6F52',
+        orange: '#FF7222',
+        'orange-dark': '#AC4633',
+        // 'orange-light': '#FF9079',
+        'orange-light': '#FF8D4D',
         pink: '#FFE4FC',
       },
     },

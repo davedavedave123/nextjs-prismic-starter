@@ -46,9 +46,10 @@ const cardContentList = [
 const Hero = () => (
   <div className='w-full h-screen relative flex justify-center items-center'>
     <div className='absolute top-0 left-0 w-full h-full'>
-      <Image src='/images/crane.jpg' layout='fill' objectFit='cover' />
+      <Image src='/images/digger.jpg' layout='fill' objectFit='cover' />
     </div>
-    <div className='w-3/4 h-1/2 z-10'>
+    <div className='w-3/4 h-3/4 z-10'>
+      <p className='text-orange'>Small little message before the big kicker.</p>
       <h1>Big brand message</h1>
       <h3 className='max-w-3xl'>
         Some other message, just a little smaller. We care about things.

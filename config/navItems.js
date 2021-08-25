@@ -4,8 +4,15 @@ export default [
     title: 'Home',
   },
   {
-    to: '/services',
+    to: '',
     title: 'Services',
+    menuItems: [
+      { title: 'first', to: '' },
+      { title: 'second', to: '' },
+      { title: 'third', to: '' },
+      { title: 'fourth', to: '' },
+      { title: 'fifth', to: '' },
+    ],
   },
   {
     to: '/about-us',

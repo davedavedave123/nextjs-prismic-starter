@@ -46,7 +46,7 @@ export const CardContent = ({
           <Button
             title={buttonTitle}
             onClick={buttonOnClick}
-            className='mt-5 bg-blue-300 border-blue-300 text-white hover:text-blue-300'
+            className='mt-5 hover:text-white text-white '
           />
         )}
       </div>
