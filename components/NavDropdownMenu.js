@@ -9,6 +9,7 @@ import { gsap } from 'gsap';
 
 import { getCurrentRefs } from '../utils/animate';
 import Link from 'next/link';
+import Image from 'next/image';
 
 const DEFAULTS = { duration: 0.5, ease: 'power4.easeInOut' };
 
@@ -63,14 +64,21 @@ export default function NavHoverMenu({
       onMouseEnter={handleHover}
       onMouseLeave={handleUnhover}
     >
-      <div ref={openButtonRef}>
+      <div ref={openButtonRef} className='relative'>
         <HoverButton />
+        <div className='absolute right-5 top-0 h-full inline-block'>
+          <div className='h-full flex items-center'>
+            <Image src='/icons/chevron-down.svg' height={15} width={15} />
+          </div>
+        </div>
       </div>
       <div
         className='w-72 h-0 overflow-hidden absolute left-0'
         style={{ top: openButtonRef?.current?.getBoundingClientRect().height }}
         ref={menuWrapperRef}
       >
+        {/* A padder to make the gap between the hover button and the menu items larger */}
+        <div className='h-4 w-full '></div>
         {menuItems.map((item, index) => (
           <Link key={`hoverMenuItem-${index}`} href={item.to}>
             <a

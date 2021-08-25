@@ -18,6 +18,7 @@ const Nav = forwardRef(
     {
       children,
       renderItem,
+      renderDropdown,
       data,
       style_nav,
       style_ul,
@@ -30,6 +31,7 @@ const Nav = forwardRef(
     ref
   ) => {
     const RenderItem = renderItem;
+    const RenderDropdown = renderDropdown;
 
     return (
       <nav
@@ -45,7 +47,15 @@ const Nav = forwardRef(
               key={`${keyPrefix}-${item.title}`}
               className={liClassName}
             >
-              <RenderItem item={item} />
+              {item?.menuItems && RenderDropdown ? (
+                <RenderDropdown
+                  menuItems={item.menuItems}
+                  HoverButton={() => <RenderItem item={item} />}
+                  menuItemClassName='bg-white text-black hover:bg-gray-200 border-black border-b'
+                />
+              ) : (
+                <RenderItem item={item} />
+              )}
             </li>
           ))}
         </ul>

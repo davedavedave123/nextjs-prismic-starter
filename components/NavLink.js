@@ -15,7 +15,7 @@ export default function NavLink({ item, underlineClassName }) {
   const router = useRouter();
   const barRef = useRef(null);
 
-  const onThisPage = router.asPath === item.to;
+  const onThisPage = router.asPath === item?.to;
   const barWidth = onThisPage ? 'w-full' : 'w-0';
 
   const onHover = () => {

@@ -4,6 +4,7 @@ import useBreakPoints from '../hooks/useBreakPoints';
 import BurgerBtn from './BurgerBtn';
 import { useNavMenu, useSetNavMenu } from '../context/navMenu';
 import NavComponent from './NavComponent';
+import NavDropdownMenu from './NavDropdownMenu';
 
 import NavLink from './NavLink';
 import navItems from '../config/navItems';
@@ -59,6 +60,7 @@ export default function Navbar({
           <NavComponent
             keyPrefix='navbar'
             renderItem={({ item }) => <NavLink item={item} />}
+            renderDropdown={NavDropdownMenu}
             data={navItems}
             ulClassName='flex'
             navClassName='py-3'

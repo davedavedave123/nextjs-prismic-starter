@@ -6,13 +6,6 @@ export default [
   {
     to: '',
     title: 'Services',
-    menuItems: [
-      { title: 'first', to: '' },
-      { title: 'second', to: '' },
-      { title: 'third', to: '' },
-      { title: 'fourth', to: '' },
-      { title: 'fifth', to: '' },
-    ],
   },
   {
     to: '/about-us',
@@ -21,6 +14,13 @@ export default [
   {
     to: '/pricing',
     title: 'Pricing',
+    menuItems: [
+      { title: 'first', to: '' },
+      { title: 'second', to: '' },
+      { title: 'third', to: '' },
+      { title: 'fourth', to: '' },
+      { title: 'fifth', to: '' },
+    ],
   },
   {
     to: '/work',
