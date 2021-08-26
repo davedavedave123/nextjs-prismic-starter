@@ -64,6 +64,8 @@ export default function Navbar({
             data={navItems}
             ulClassName='flex'
             navClassName='py-3'
+            dropdownMenuItemClassName='text-black hover:bg-gray-200 border-black border-b'
+            // dropdownMenuItemStyle={{ backgroundColor: 'rgba(255,255,255,0.5' }}
           />
         )}
         {children}

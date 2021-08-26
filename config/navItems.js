@@ -25,5 +25,10 @@ export default [
   {
     to: '/work',
     title: 'Work',
+    menuItems: [
+      { title: 'hi', to: '' },
+      { title: 'blah', to: '' },
+      { title: 'hello', to: '' },
+    ],
   },
 ];

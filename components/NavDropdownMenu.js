@@ -17,6 +17,7 @@ export default function NavHoverMenu({
   menuItems,
   HoverButton,
   menuItemClassName,
+  menuItemStyle,
 }) {
   const openButtonRef = useRef(null);
   const menuWrapperRef = useRef(null);
@@ -86,6 +87,7 @@ export default function NavHoverMenu({
                 <a
                   className={`relative block px-10 py-3 opacity-0 ${menuItemClassName}`}
                   ref={menuItemRefs[index]}
+                  style={menuItemStyle}
                 >
                   {item.title}
                 </a>

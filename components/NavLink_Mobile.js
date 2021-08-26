@@ -1,5 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import _Link from 'next/link';
+import Image from 'next/image';
 import { useRouter } from 'next/router';
 
 // utils
@@ -7,9 +8,20 @@ import animate from '../utils/animate';
 
 // context
 import { useNavMenu, useSetNavMenu } from '../context/navMenu';
+import {
+  useSetSubMenuIsOpen,
+  useSetSubMenuItems,
+} from '../context/SubMenu_mobile';
 
-export default function NavLink({ item, underlineClassName }) {
+export default function NavLink({
+  item,
+  underlineClassName,
+  // openSubMenu,
+  // closeSubMenu,
+}) {
   const setMenuOpen = useSetNavMenu();
+  const setSubMenuIsOpen = useSetSubMenuIsOpen();
+  const setSubMenuItems = useSetSubMenuItems();
   const router = useRouter();
   const barRef = useRef(null);
 
@@ -24,7 +36,7 @@ export default function NavLink({ item, underlineClassName }) {
     if (!onThisPage) animate(barRef, { width: 0 });
   };
 
-  const LinkInner = ({ className }) => (
+  const LinkInner = () => (
     <>
       <span>{item.title}</span>
       <div className='absolute -bottom-3 px-8 w-full left-0 h-1'>
@@ -36,11 +48,23 @@ export default function NavLink({ item, underlineClassName }) {
     </>
   );
 
+  // If link is actually a button to open a sub menu
   if (item?.menuItems)
     return (
-      <div style={{ ...styles.a, padding: '0px 2.5rem', cursor: 'pointer' }}>
+      <button
+        style={{ ...styles.a, padding: '0px 2.5rem', cursor: 'pointer' }}
+        onClick={() => {
+          setSubMenuIsOpen(true);
+          setSubMenuItems(item.menuItems);
+        }}
+      >
         <LinkInner />
-      </div>
+        <div className='absolute right-5 top-0 h-full inline-block'>
+          <div className='h-full flex items-center transform -rotate-90'>
+            <Image src='/icons/chevron-down.svg' height={15} width={15} />
+          </div>
+        </div>
+      </button>
     );
 
   return (

@@ -27,6 +27,8 @@ const Nav = forwardRef(
       navClassName,
       ulClassName,
       liClassName,
+      dropdownMenuItemClassName,
+      dropdownMenuItemStyle,
     },
     ref
   ) => {
@@ -51,7 +53,8 @@ const Nav = forwardRef(
                 <RenderDropdown
                   menuItems={item.menuItems}
                   HoverButton={() => <RenderItem item={item} />}
-                  menuItemClassName='bg-white text-black hover:bg-gray-200 border-black border-b'
+                  menuItemClassName={dropdownMenuItemClassName}
+                  menuItemStyle={dropdownMenuItemStyle}
                 />
               ) : (
                 <RenderItem item={item} />
