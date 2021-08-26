@@ -64,6 +64,7 @@ const Hero = () => {
       <div className='absolute left-0 top-0 w-full h-full'>
         <ImageCover
           src='/images/digger.jpg'
+          blurSrc='/images/digger-blur.jpg'
           alt='digger'
           width={5472}
           height={3648}
@@ -117,6 +118,7 @@ export default function Home() {
         <ImageWithText
           img={{
             src: '/images/steel.jpg',
+            blurSrc: '/images/steel-blur.jpg',
             alt: 'steel',
             width: 4000,
             height: 6000,
@@ -147,7 +149,7 @@ export default function Home() {
         <ImageWithText2
           img={{
             src: '/images/wood-worker.jpg',
-            // blurSrc: '/images/wood-worker-blur.jpg',
+            blurSrc: '/images/wood-worker-blur.jpg',
             alt: 'nothing',
             width: 6000,
             height: 4000,
