@@ -5,6 +5,7 @@ import useDimensions from 'react-cool-dimensions';
 // A responsive version of layout='fill' objectFit='cover'
 export default function ImageCover({
   src,
+  blurSrc,
   alt,
   width,
   height,
@@ -68,6 +69,8 @@ export default function ImageCover({
           width={imgWidth_adjusted}
           height={imgHeight_adjusted}
           layout='responsive'
+          placeholder={blurSrc ? 'blur' : 'empty'}
+          blurDataURL={blurSrc}
           {...props}
         />
       </div>

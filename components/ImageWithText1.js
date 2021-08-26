@@ -3,7 +3,7 @@ import Image from 'next/image';
 import ImageCover from './ImageCover';
 
 const IMG = {
-  url: '/images/GOPR9291.jpg',
+  src: '',
   dimensions: {
     width: 0,
     height: 0,
@@ -27,10 +27,11 @@ export default function ImageWithText({ title, body, img = IMG, children }) {
         ref={imgRef}
         style={{ height: imgHeight }}
       >
-        {img.url && (
+        {img.src && (
           <ImageCover
-            src={img.url}
+            src={img.src}
             alt={img.alt}
+            blurSrc={img?.blurSrc}
             height={img.height}
             width={img.width}
             quality={20}

@@ -5,7 +5,7 @@ import animateOnScroll from '../utils/animateOnScroll';
 import ImageCover from './ImageCover';
 
 const IMG = {
-  url: '/images/GOPR9291.jpg',
+  src: '/images/GOPR9291.jpg',
   dimensions: {
     width: 0,
     height: 0,
@@ -27,9 +27,10 @@ export default function ImageWithText2({ title, body, img = IMG, children }) {
         style={{ height: '40vw', minHeight: '50vh', maxHeight: '60vh' }}
       >
         <div className='relative w-full parallax' style={{ height: '150%' }}>
-          {img.url && (
+          {img.src && (
             <ImageCover
-              src={img.url}
+              src={img.src}
+              blurSrc={img?.blurSrc}
               alt={img.alt}
               width={img.width}
               height={img.height}

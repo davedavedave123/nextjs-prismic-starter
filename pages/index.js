@@ -116,7 +116,7 @@ export default function Home() {
         <Services />
         <ImageWithText
           img={{
-            url: '/images/steel.jpg',
+            src: '/images/steel.jpg',
             alt: 'steel',
             width: 4000,
             height: 6000,
@@ -146,7 +146,8 @@ export default function Home() {
         </ImageWithText>
         <ImageWithText2
           img={{
-            url: '/images/wood-worker.jpg',
+            src: '/images/wood-worker.jpg',
+            // blurSrc: '/images/wood-worker-blur.jpg',
             alt: 'nothing',
             width: 6000,
             height: 4000,
