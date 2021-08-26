@@ -3,7 +3,7 @@ import '../styles/globals.css';
 import { useRouter } from 'next/router';
 
 import MasterContextProvider from '../context/MasterContextProvider';
-// import Navbar from '../components/nav/Navbar';
+import Navbar from '../components/navOld2/Navbar';
 import navItems from '../config/navItems';
 import { useNavMenu } from '../context/navMenu';
 
@@ -14,7 +14,7 @@ const Wrapper = ({ Component, pageProps }) => {
 
   return (
     <>
-      {/* <Navbar data={navItems} /> */}
+      <Navbar data={navItems} />
       <div className={`w-screen ${navMenuOpen && ''}`}>
         <Component {...pageProps} />
       </div>
