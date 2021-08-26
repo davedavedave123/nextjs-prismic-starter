@@ -14,7 +14,7 @@ const Wrapper = ({ Component, pageProps }) => {
 
   return (
     <>
-      <Navbar data={navItems} />
+      {/* <Navbar data={navItems} /> */}
       <div className={`w-screen ${navMenuOpen && ''}`}>
         <Component {...pageProps} />
       </div>
