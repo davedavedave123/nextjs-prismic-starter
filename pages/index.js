@@ -115,7 +115,12 @@ export default function Home() {
         />
         <Services />
         <ImageWithText
-          img={{ url: '/images/steel.jpg' }}
+          img={{
+            url: '/images/steel.jpg',
+            alt: 'steel',
+            width: 4000,
+            height: 6000,
+          }}
           title='This is the big title'
         >
           <p className='my-5'>
@@ -140,7 +145,12 @@ export default function Home() {
           </a>
         </ImageWithText>
         <ImageWithText2
-          img={{ url: '/images/wood-worker.jpg', alt: 'nothing' }}
+          img={{
+            url: '/images/wood-worker.jpg',
+            alt: 'nothing',
+            width: 6000,
+            height: 4000,
+          }}
           title='This is the big title'
           body='Pellentesque habitant morbi tristique senectus et netus et malesuada
             fames ac turpis egestas.'

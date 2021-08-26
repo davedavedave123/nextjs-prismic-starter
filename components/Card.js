@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import Image from 'next/image';
 
 import Button from './Button';
+import ImageCover from './ImageCover';
 
 const Icon = ({ src, alt }) => (
   <div className='w-5 h-5 mr-2 relative'>
@@ -54,7 +55,14 @@ export const CardContent = ({
   );
 };
 
-export default function Card({ src, alt, children, delay }) {
+export default function Card({
+  src,
+  alt,
+  imgWidth,
+  imgHeight,
+  children,
+  delay,
+}) {
   return (
     <div
       className='anim-up anim-card w-80 h-96 flex-shrink-0 rounded-xl overflow-hidden relative shadow-xl my-20'
@@ -62,7 +70,7 @@ export default function Card({ src, alt, children, delay }) {
       data-animdelay={delay}
     >
       <div className='w-full h-1/2 relative'>
-        <Image src={src} alt={alt} layout='fill' objectFit='cover' />
+        <ImageCover src={src} alt={alt} width={imgWidth} height={imgHeight} />
       </div>
       {/* <CardContent /> */}
       {children}

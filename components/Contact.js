@@ -1,6 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
 import Image from 'next/image';
 import ContactForm from './ContactForm';
+import ImageCover from './ImageCover';
 
 export default function Contact() {
   const imgRef = useRef(null);
@@ -18,7 +19,7 @@ export default function Contact() {
         ref={imgRef}
         style={{ height: imgHeight }}
       >
-        <Image src='/images/contact-us.png' layout='fill' objectFit='cover' />
+        <ImageCover src='/images/contact-us.png' width={1120} height={744} />
       </div>
       <div className='anim-up w-full h-full flex flex-col justify-center p-10'>
         <h2 className=''>Keep in touch</h2>

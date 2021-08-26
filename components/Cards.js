@@ -9,7 +9,12 @@ const cardsContent = [
   {
     smallTitle: 'Some small title',
     bigTitle: 'Big Title',
-    img: { src: '/images/digger.jpg', alt: 'something' },
+    img: {
+      src: '/images/digger-small.jpg',
+      alt: 'something',
+      width: 5472,
+      height: 3648,
+    },
     onClick: () => alert('click 1'),
     content: [
       {
@@ -29,7 +34,12 @@ const cardsContent = [
   {
     smallTitle: 'Some other small title',
     bigTitle: 'Another Title',
-    img: { src: '/images/quarry.jpg', alt: 'something' },
+    img: {
+      src: '/images/quarry-small.jpg',
+      alt: 'something',
+      width: 6000,
+      height: 4000,
+    },
     onClick: () => alert('click 2'),
     content: [
       {
@@ -49,7 +59,12 @@ const cardsContent = [
   {
     smallTitle: 'Some other small title',
     bigTitle: 'Another Title',
-    img: { src: '/images/snow.jpg', alt: 'something' },
+    img: {
+      src: '/images/snow-small.jpg',
+      alt: 'something',
+      width: 6000,
+      height: 4000,
+    },
     onClick: () => alert('click 2'),
     content: [
       {
@@ -79,6 +94,8 @@ export default function Cards() {
           key={`card-${index}`}
           src={card.img.src}
           alt={card.img.alt}
+          imgWidth={card.img.width}
+          imgHeight={card.img.height}
         >
           <CardContent
             smallTitle={card.smallTitle}

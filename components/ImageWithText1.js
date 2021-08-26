@@ -1,5 +1,6 @@
 import React, { useRef, useEffect, useState } from 'react';
 import Image from 'next/image';
+import ImageCover from './ImageCover';
 
 const IMG = {
   url: '/images/GOPR9291.jpg',
@@ -27,7 +28,13 @@ export default function ImageWithText({ title, body, img = IMG, children }) {
         style={{ height: imgHeight }}
       >
         {img.url && (
-          <Image src={img.url} alt={img.alt} layout='fill' objectFit='cover' />
+          <ImageCover
+            src={img.url}
+            alt={img.alt}
+            height={img.height}
+            width={img.width}
+            quality={20}
+          />
         )}
       </div>
       {/* Text wrapper */}

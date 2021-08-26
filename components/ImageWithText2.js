@@ -2,6 +2,7 @@ import Image from 'next/image';
 import React, { useEffect, useRef } from 'react';
 
 import animateOnScroll from '../utils/animateOnScroll';
+import ImageCover from './ImageCover';
 
 const IMG = {
   url: '/images/GOPR9291.jpg',
@@ -27,11 +28,13 @@ export default function ImageWithText2({ title, body, img = IMG, children }) {
       >
         <div className='relative w-full parallax' style={{ height: '150%' }}>
           {img.url && (
-            <Image
+            <ImageCover
               src={img.url}
               alt={img.alt}
-              layout='fill'
-              objectFit='cover'
+              width={img.width}
+              height={img.height}
+              // layout='fill'
+              // objectFit='cover'
             />
           )}
         </div>

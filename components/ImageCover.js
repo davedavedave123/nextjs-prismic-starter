@@ -2,6 +2,7 @@ import React from 'react';
 import Image from 'next/image';
 import useDimensions from 'react-cool-dimensions';
 
+// A responsive version of layout='fill' objectFit='cover'
 export default function ImageCover({
   src,
   alt,
@@ -64,8 +65,8 @@ export default function ImageCover({
         <Image
           src={src}
           alt={alt}
-          width={width}
-          height={height}
+          width={imgWidth_adjusted}
+          height={imgHeight_adjusted}
           layout='responsive'
           {...props}
         />
