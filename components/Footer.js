@@ -4,7 +4,6 @@ import _Link from 'next/link';
 
 import contact from '../config/contact';
 // import NavComponent from '../components/nav/NavComponent';
-import NavComponent from '../components/nav/NavComponent';
 import navItems from '../config/navItems';
 import ContactForm from './ContactForm';
 
@@ -38,12 +37,12 @@ const Contact = () => (
 
 const Links = () => (
   <div className='flex flex-col justify-center pb-10 my-10 border-b border-gray-300 lg:border-0 lg:block'>
-    <NavComponent
+    {/* <NavComponent
       keyPrefix='footer-links'
       renderItem={({ item }) => <Link item={item} />}
       data={navItems}
       liClassName='my-4 '
-    />
+    /> */}
   </div>
 );
 
