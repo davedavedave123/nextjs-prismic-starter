@@ -12,8 +12,8 @@ const cardsContent = [
     img: {
       src: '/images/digger-small.jpg',
       alt: 'something',
-      width: 5472,
-      height: 3648,
+      width: 800,
+      height: 800,
     },
     onClick: () => alert('click 1'),
     content: [
@@ -37,8 +37,8 @@ const cardsContent = [
     img: {
       src: '/images/quarry-small.jpg',
       alt: 'something',
-      width: 6000,
-      height: 4000,
+      width: 800,
+      height: 800,
     },
     onClick: () => alert('click 2'),
     content: [
@@ -62,8 +62,8 @@ const cardsContent = [
     img: {
       src: '/images/snow-small.jpg',
       alt: 'something',
-      width: 6000,
-      height: 4000,
+      width: 1000,
+      height: 843,
     },
     onClick: () => alert('click 2'),
     content: [
