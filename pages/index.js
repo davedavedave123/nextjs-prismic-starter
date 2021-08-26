@@ -7,6 +7,7 @@ import {
   BrowserView,
 } from 'react-device-detect';
 import Image from 'next/image';
+import useDimensions from 'react-cool-dimensions';
 
 import PhotoModal from '../components/PhotoModal';
 import Services from '../components/Services';
@@ -20,6 +21,7 @@ import Button from '../components/Button';
 import Card, { CardContent, CardContentList } from '../components/Card';
 import Cards from '../components/Cards';
 import animateOnScroll from '../utils/animateOnScroll';
+import ImageCover from '../components/ImageCover';
 
 const images = [
   // {src: '/images/GOPR9291.jpg', alt: 'rock arch', width: 3000, height: 2250},
@@ -43,21 +45,43 @@ const cardContentList = [
   },
 ];
 
-const Hero = () => (
-  <div className='w-full h-screen relative flex justify-center items-center'>
-    <div className='absolute top-0 left-0 w-full h-full'>
-      <Image src='/images/digger.jpg' layout='fill' objectFit='cover' />
+const Hero = () => {
+  const { observe, unobserve, width, height, entry } = useDimensions({
+    onResize: ({ observe, unobserve, width, height, entry }) => {
+      // Triggered whenever the size of the target is changed...
+
+      unobserve(); // To stop observing the current target element
+      observe(); // To re-start observing the current target element
+    },
+  });
+
+  const masterWidth = 5472;
+  const masterHeight = 3648;
+  const ratio = masterHeight / masterWidth;
+
+  return (
+    <div className='w-full h-screen relative flex items-center justify-center'>
+      <div className='absolute left-0 top-0 w-full h-full'>
+        <ImageCover
+          src='/images/digger.jpg'
+          alt='digger'
+          width={5472}
+          height={3648}
+        />
+      </div>
+      <div className='w-3/4 h-3/4 relative z-10'>
+        <p className='text-orange'>
+          Small little message before the big kicker.
+        </p>
+        <h1>Big brand message</h1>
+        <h3 className='max-w-3xl'>
+          Some other message, just a little smaller. We care about things.
+        </h3>
+        <Button title='CALL TO ACTION' />
+      </div>
     </div>
-    <div className='w-3/4 h-3/4 z-10'>
-      <p className='text-orange'>Small little message before the big kicker.</p>
-      <h1>Big brand message</h1>
-      <h3 className='max-w-3xl'>
-        Some other message, just a little smaller. We care about things.
-      </h3>
-      <Button title='CALL TO ACTION' />
-    </div>
-  </div>
-);
+  );
+};
 
 export default function Home() {
   const [photoModalVisible, setPhotoModalVisible] = useState(false);

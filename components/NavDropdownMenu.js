@@ -79,18 +79,20 @@ export default function NavHoverMenu({
       >
         {/* A padder to make the gap between the hover button and the menu items larger */}
         <div className='h-4 w-full '></div>
-        {menuItems.map((item, index) => (
-          <Link key={`hoverMenuItem-${index}`} href={item.to}>
-            <a
-              // className={`relative block text-white bg-gray-700 hover:bg-gray-800 border-black border-t px-10 py-3 ${menuItemClassName}`}
-              className={`relative block px-10 py-3 opacity-0 ${menuItemClassName}`}
-              ref={menuItemRefs[index]}
-            >
-              {item.title}
-            </a>
-          </Link>
-          // <MenuItem>{item.title}</MenuItem>
-        ))}
+        <ul>
+          {menuItems.map((item, index) => (
+            <li>
+              <Link key={`hoverMenuItem-${index}`} href={item.to}>
+                <a
+                  className={`relative block px-10 py-3 opacity-0 ${menuItemClassName}`}
+                  ref={menuItemRefs[index]}
+                >
+                  {item.title}
+                </a>
+              </Link>
+            </li>
+          ))}
+        </ul>
       </div>
     </div>
   );
