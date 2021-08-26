@@ -232,7 +232,7 @@ const styles = {
     justifyContent: 'space-around',
     outline: 0,
     position: 'relative',
-    zIndex: 2000,
+    zIndex: 40,
     padding: 20,
     boxSizing: 'border-box',
   },

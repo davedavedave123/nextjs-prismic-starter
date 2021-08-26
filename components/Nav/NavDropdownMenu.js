@@ -6,10 +6,10 @@ import React, {
   useState,
 } from 'react';
 import { gsap } from 'gsap';
-
-import { getCurrentRefs } from '../utils/animate';
 import Link from 'next/link';
 import Image from 'next/image';
+
+import { getCurrentRefs } from '../../utils/animate';
 
 const DEFAULTS = { duration: 0.5, ease: 'power4.easeInOut' };
 

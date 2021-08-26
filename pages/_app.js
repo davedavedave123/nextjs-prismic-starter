@@ -3,8 +3,8 @@ import MasterContextProvider from '../context/MasterContextProvider';
 import '../styles/globals.css';
 import { useRouter } from 'next/router';
 
-import Navbar from '../components/Navbar';
-import NavLink from '../components/NavLink';
+import Navbar from '../components/Nav/Navbar';
+import NavLink from '../components/Nav/NavLink';
 import navItems from '../config/navItems';
 import { useNavMenu } from '../context/navMenu';
 
@@ -17,7 +17,7 @@ const Wrapper = ({ Component, pageProps }) => {
     <>
       <Navbar
         data={navItems}
-        renderItem={({ item }) => <NavLink item={item} />}
+        // renderItem={({ item }) => <NavLink item={item} />}
       />
       <div className={`w-screen ${navMenuOpen && ''}`}>
         <Component {...pageProps} />

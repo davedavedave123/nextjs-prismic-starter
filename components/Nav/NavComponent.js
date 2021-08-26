@@ -10,9 +10,28 @@ import React, { forwardRef } from 'react';
  *
  * Key prefix is unique key attached to index 'someUniqueKey-1'
  *
- * renderItem is some kind of Link component
+ * renderItem is a Link component
  */
-// Still needs to be wrapped in <nav>
+
+// NavComponent is meant to be the structure that you dress up however you want.
+
+// LINKS:
+// Pass a Link component in as renderItem to be used in the nav menu item map (data.map).
+// In your Link component make sure you receive the item prop, ie:
+// const LinkItemComponent ({item}) => <Link href={item.to}><a>{item.title}</a></Link>
+
+// DROPDOWN:
+// If your menu has any dropdown lists, pass in a dropdown component using renderDropdown
+// Style the menuItem Link components by using dropdownMenuItemClassName and dropdownMenuItemStyle
+
+// MOBILE DROPDOWN (sub menu):
+// There is no dropdown menu for mobile, we use a submenu instead which slides in
+// from the right – the same way you navigate through menus on a mobile app.
+// The subMenuIsOpen and subMenuItems is handled through the SubMenu_mobile context.
+// NavLink_mobile is the Link component to be used when building your NavMenu_mobile component.
+// If an item (link) has a 'menuItems' array, this means there are sub menu items, NavLink_mobile will
+// open the sub menu and repopulate the subMenuItems with the relevant ones.
+
 const Nav = forwardRef(
   (
     {

@@ -2,40 +2,45 @@ import React, { useEffect, useRef, useState } from 'react';
 import Div100Vh from 'react-div-100vh';
 import { gsap } from 'gsap';
 
-import NavSubMenu_Mobile from './NavSubMenu_Mobile';
+import NavSubMenu_Mobile from './NavSubMenu_mobile';
 import NavComponent from './NavComponent';
-import navItems from '../config/navItems';
-import { useNavMenu } from '../context/navMenu';
-import animate from '../utils/animate';
-import NavLink_Mobile from './NavLink_Mobile';
+import navItems from '../../config/navItems';
+import { useNavMenu } from '../../context/navMenu';
+import animate from '../../utils/animate';
+import NavLink_Mobile from './NavLink_mobile';
 import {
   useSetSubMenuIsOpen,
   useSubMenuIsOpen,
-} from '../context/SubMenu_mobile';
+} from '../../context/SubMenu_mobile';
 
 export default function NavMobileMenu() {
   const menuOpen = useNavMenu();
   const subMenuIsOpen = useSubMenuIsOpen();
-  const nav = useRef(null);
+  const navWrapper = useRef(null);
+  const navItemsRef = useRef(null);
 
   const [showMenu, setShowMenu] = useState(false);
   const setSubMenuIsOpen = useSetSubMenuIsOpen();
 
   const handleOpen = () => {
     setShowMenu(true);
-    setTimeout(() => animate(nav, { opacity: [0, 1], scale: [0.9, 1] }), 0);
+    setTimeout(() => {
+      animate(navWrapper, { opacity: [0, 1] });
+      animate(navItemsRef, { scale: [0.9, 1] });
+    }, 0);
   };
 
   const handleClose = () => {
-    animate(nav, {
+    animate(navWrapper, {
       opacity: [1, 0],
-      scale: [1, 0.9],
+      // scale: [1, 0.9],
       onComplete: () => setShowMenu(false),
     });
+    animate(navItemsRef, { scale: [1, 0.9] });
   };
 
   const handleSubMenuOpen = () => {
-    gsap.to(nav.current, {
+    gsap.to(navItemsRef.current, {
       x: -100,
       duration: 0.3,
       ease: 'power4.easeInOut',
@@ -43,7 +48,7 @@ export default function NavMobileMenu() {
   };
 
   const handleSubMenuClose = () => {
-    gsap.to(nav.current, {
+    gsap.to(navItemsRef.current, {
       x: 0,
       duration: 0.3,
       ease: 'power4.easeInOut',
@@ -63,14 +68,15 @@ export default function NavMobileMenu() {
   if (showMenu)
     return (
       <div
-        className='fixed z-50 top-0 left-0 w-screen h-screen'
+        className='fixed z-30 top-0 left-0 bg-white w-screen h-screen opacity-0'
         data-options='scrolltop:false'
+        ref={navWrapper}
       >
         <NavComponent
           keyPrefix='mobile-nav'
-          ref={nav}
-          navClassName='opacity-0 z-10 bg-white w-full h-full flex flex-col justify-center items-center'
+          navClassName='z-40 w-full h-full flex flex-col justify-center items-center'
           data={navItems}
+          ref={navItemsRef}
           renderItem={({ item }) => (
             <NavLink_Mobile
               item={item}
@@ -79,12 +85,13 @@ export default function NavMobileMenu() {
             />
           )}
           // renderDropdown={NavSubMenu_Mobile}
-          dropdownMenuItemClassName='text-black hover:bg-gray-200 border-black border-b'
+          // dropdownMenuItemClassName='text-black hover:bg-gray-200 border-black border-b'
           liClassName='my-10'
         />
         <NavSubMenu_Mobile
-        // closeSubMenu={() => setSubMenuIsOpen(false)}
-        // subMenuIsOpen={subMenuIsOpen}
+          // closeSubMenu={() => setSubMenuIsOpen(false)}
+          // subMenuIsOpen={subMenuIsOpen}
+          menuItemClassName='text-2xl'
         />
       </div>
     );

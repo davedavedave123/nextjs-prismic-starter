@@ -4,14 +4,14 @@ import Image from 'next/image';
 import { useRouter } from 'next/router';
 
 // utils
-import animate from '../utils/animate';
+import animate from '../../utils/animate';
 
 // context
-import { useNavMenu, useSetNavMenu } from '../context/navMenu';
+import { useNavMenu, useSetNavMenu } from '../../context/navMenu';
 import {
   useSetSubMenuIsOpen,
   useSetSubMenuItems,
-} from '../context/SubMenu_mobile';
+} from '../../context/SubMenu_mobile';
 
 export default function NavLink({
   item,

@@ -14,19 +14,27 @@ import {
   useSetSubMenuIsOpen,
   useSubMenuIsOpen,
   useSubMenuItems,
-} from '../context/SubMenu_mobile';
+} from '../../context/SubMenu_mobile';
 
-import { getCurrentRefs } from '../utils/animate';
+import { getCurrentRefs } from '../../utils/animate';
 
 const DEFAULTS = { duration: 0.3, ease: 'power4.easeInOut' };
 
+const Back = ({ onClick }) => (
+  <button className='absolute p-4 top-0 left-0' onClick={onClick}>
+    <Image
+      src='/icons/chevron-back.svg'
+      alt='back arrow'
+      width={30}
+      height={30}
+    />
+    {/* BACK */}
+  </button>
+);
+
 export default function NavSubMenu_Mobile({
-  menuItems,
-  HoverButton,
   menuItemClassName,
   menuItemStyle,
-  // subMenuIsOpen,
-  // closeSubMenu,
 }) {
   const subMenuIsOpen = useSubMenuIsOpen();
   const setSubMenuIsOpen = useSetSubMenuIsOpen();
@@ -99,31 +107,41 @@ export default function NavSubMenu_Mobile({
       //     <div className='h-4 w-full '></div>
       //     <ul>
       //       {menuItems.map((item, index) => (
-      //         <li key={`hoverMenuItem-${index}`}>
-      //           <Link href={item.to}>
-      //             <a
-      //               className={`relative block px-10 py-3 opacity-0 ${menuItemClassName}`}
-      //               ref={menuItemRefs[index]}
-      //               style={menuItemStyle}
-      //             >
-      //               {item.title}
-      //             </a>
-      //           </Link>
-      //         </li>
+      // <li key={`hoverMenuItem-${index}`}>
+      //   <Link href={item.to}>
+      //     <a
+      //       className={`relative block px-10 py-3 opacity-0 ${menuItemClassName}`}
+      //       ref={menuItemRefs[index]}
+      //       style={menuItemStyle}
+      //     >
+      //       {item.title}
+      //     </a>
+      //   </Link>
+      // </li>
       //       ))}
       //     </ul>
       //   </div>
       // </button>
       <div
-        className='w-screen h-screen absolute top-0 left-0 bg-white flex flex-col justify-center items-center'
-        // style={{ marginLeft: '100vw' }}
+        className='w-screen h-screen absolute left-0 top-0 bg-white flex flex-col justify-center items-center z-50'
+        // style={{ marginLeft: '100%' }}
         ref={wrapperRef}
       >
-        Hi this is sub menu
-        <button onClick={() => setSubMenuIsOpen(false)}>Close</button>
+        <Back onClick={() => setSubMenuIsOpen(false)} />
         <ul>
           {subMenuItems.map((item, index) => (
-            <li key={`submenuitem-${index}`}>{item.title}</li>
+            <li key={`subMenuItem-${index}`}>
+              {/* {item.to} */}
+              <Link href={item.to}>
+                <a
+                  className={`relative block px-10 py-3 ${menuItemClassName}`}
+                  ref={menuItemRefs[index]}
+                  style={menuItemStyle}
+                >
+                  {item.title}
+                </a>
+              </Link>
+            </li>
           ))}
         </ul>
       </div>
