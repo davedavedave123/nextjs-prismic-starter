@@ -7,39 +7,86 @@ import NavComponent from './nav/NavComponent';
 import navItems from '../config/navItems';
 import ContactForm from './ContactForm';
 
-const Link = ({ item }) => (
-  <_Link href={item.to}>
-    <a className='relative text-2xl'>
-      <div className='py-0'>{item.title}</div>
-    </a>
-  </_Link>
-);
+const Link = ({ item, aClassName, ...otherProps }) => {
+  if (item?.title)
+    return (
+      <_Link href={item.to}>
+        <a className={`relative ${aClassName}`} {...otherProps}>
+          <div className='py-0'>{item.title}</div>
+        </a>
+      </_Link>
+    );
+  return null;
+};
 
 // MAKE ALL THESE INTO mailto tel and maps LINKS
-const Contact = () => (
-  <div className='flex flex-col pb-10 my-10 border-b border-gray-300 lg:border-0 lg:block'>
-    <div>
-      <div className='w-60 h-10 relative'>
-        <Image src='/images/logo.png' layout='fill' objectFit='cover' />
-      </div>
-      <div className='py-5'>
-        <div>{contact?.details?.addressLine1}</div>
-        <div>{contact?.details?.addressLine2}</div>
-      </div>
+const Contact = () => {
+  const combinedAddress = `${contact?.details?.addressLine1} ${contact?.details?.addressLine2}`;
+  const addressLink = `http://maps.google.com/?q=${combinedAddress}`;
+
+  return (
+    <div className='flex flex-col pb-10 my-10 border-b border-gray-300 lg:border-0 lg:block'>
       <div>
-        <div>{contact?.details?.email}</div>
-        <div>{contact?.details?.office}</div>
-        <div>{contact?.details?.mobile}</div>
+        <div className='w-60 h-10 relative'>
+          <Image src='/images/logo.png' layout='fill' objectFit='cover' />
+        </div>
+        <div className='py-5'>
+          <Link
+            item={{
+              title: contact?.details?.addressLine1,
+              to: addressLink,
+            }}
+            aClassName='underline'
+            target='_blank'
+            rel='noreferrer'
+          />
+          <Link
+            item={{
+              title: contact?.details?.addressLine2,
+              to: addressLink,
+            }}
+            aClassName='underline'
+            target='_blank'
+            rel='noreferrer'
+          />
+          {/* <div>{contact?.details?.addressLine1}</div>
+        <div>{contact?.details?.addressLine2}</div> */}
+        </div>
+        <div>
+          <Link
+            item={{
+              title: contact?.details?.email,
+              to: `mailto:${contact?.details?.email}`,
+            }}
+            aClassName='underline'
+          />
+          <Link
+            item={{
+              title: contact?.details?.office,
+              to: `tel:${contact?.details?.office}`,
+            }}
+            aClassName='underline'
+          />
+          <Link
+            item={{
+              title: contact?.details?.mobile,
+              to: `tel:${contact?.details?.mobile}`,
+            }}
+            aClassName='underline'
+          />
+          {/* <div>{contact?.details?.office}</div>
+        <div>{contact?.details?.mobile}</div> */}
+        </div>
       </div>
     </div>
-  </div>
-);
+  );
+};
 
 const Links = () => (
   <div className='flex flex-col justify-center pb-10 my-10 border-b border-gray-300 lg:border-0 lg:block'>
     <NavComponent
       keyPrefix='footer-links'
-      renderItem={({ item }) => <Link item={item} />}
+      renderItem={({ item }) => <Link item={item} aClassName='text-2xl' />}
       data={navItems}
       liClassName='my-4 '
     />
