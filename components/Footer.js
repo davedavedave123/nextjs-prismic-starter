@@ -3,7 +3,7 @@ import React from 'react';
 import _Link from 'next/link';
 
 import contact from '../config/contact';
-import NavComponent from './NavOld2/NavComponent';
+import NavComponent from './navOld2/NavComponent';
 import navItems from '../config/navItems';
 import ContactForm from './ContactForm';
 
