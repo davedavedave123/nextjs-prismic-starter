@@ -3,8 +3,8 @@ import MasterContextProvider from '../context/MasterContextProvider';
 import '../styles/globals.css';
 import { useRouter } from 'next/router';
 
-import Navbar from '../components/Nav/Navbar';
-import NavLink from '../components/Nav/NavLink';
+import Navbar from '../components/nav/Navbar';
+import NavLink from '../components/nav/NavLink';
 import navItems from '../config/navItems';
 import { useNavMenu } from '../context/navMenu';
 

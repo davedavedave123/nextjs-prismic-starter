@@ -1,8 +1,8 @@
 import React from 'react';
-import Link from 'next/link';
+// import Link from 'next/link';
 
-import NavDropdownMenu from '../components/NavDropdownMenu';
-import Image from 'next/image';
+// import NavDropdownMenu from '../components/nav/NavDropdownMenu';
+// import Image from 'next/image';
 
 export default function aboutUs() {
   return (

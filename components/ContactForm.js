@@ -2,10 +2,10 @@ import React, { useState } from 'react';
 import * as Yup from 'yup';
 
 import Button from './Button';
-import Form from './Forms/Form';
-import FormField from './Forms/FormField';
-import SubmitButton from './Forms/SubmitButton';
-import ErrorMessage from './Forms/ErrorMessage';
+import Form from './forms/Form';
+import FormField from './forms/FormField';
+import SubmitButton from './forms/SubmitButton';
+import ErrorMessage from './forms/ErrorMessage';
 
 const validationSchema = Yup.object().shape({
   fullName: Yup.string().required().label('Full Name'),
