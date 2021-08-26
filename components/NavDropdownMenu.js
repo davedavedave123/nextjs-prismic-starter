@@ -81,8 +81,8 @@ export default function NavHoverMenu({
         <div className='h-4 w-full '></div>
         <ul>
           {menuItems.map((item, index) => (
-            <li>
-              <Link key={`hoverMenuItem-${index}`} href={item.to}>
+            <li key={`hoverMenuItem-${index}`}>
+              <Link href={item.to}>
                 <a
                   className={`relative block px-10 py-3 opacity-0 ${menuItemClassName}`}
                   ref={menuItemRefs[index]}
