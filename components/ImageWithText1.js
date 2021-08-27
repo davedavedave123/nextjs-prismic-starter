@@ -12,18 +12,22 @@ const IMG = {
 
 export default function ImageWithText({ title, body, img = IMG, children }) {
   const imgRef = useRef(null);
-  const [imgHeight, setImgHeight] = useState(200);
+  const textRef = useRef(null);
+  const [imgHeight, setImgHeight] = useState(400);
 
   useEffect(() => {
-    if (imgRef?.current)
-      setImgHeight(imgRef?.current?.getBoundingClientRect()?.width);
-  }, [imgRef]);
+    if (textRef?.current)
+      setImgHeight(textRef?.current?.getBoundingClientRect()?.height);
+  }, [textRef?.current]);
 
   return (
-    <div className='w-full relative h-auto md:grid md:grid-cols-2 md:grid-rows-1 grid-cols-1 grid-rows-2'>
+    <div
+      // className='w-full relative h-auto md:grid md:grid-cols-2 md:grid-rows-1 grid-cols-1 grid-rows-2'
+      className='w-full relative h-auto md:flex'
+    >
       {/* Image wrapper */}
       <div
-        className={`relative w-full h-full overflow-hidden`}
+        className={`relative md:w-1/2 w-full h-full`}
         ref={imgRef}
         style={{ height: imgHeight }}
       >
@@ -40,8 +44,9 @@ export default function ImageWithText({ title, body, img = IMG, children }) {
       </div>
       {/* Text wrapper */}
       <div
-        className='relative p-5 md:p-10 md:flex justify-center items-center'
+        className='relative md:w-1/2 w-full p-5 bg-yellow-300 md:p-10 md:flex justify-center items-center'
         style={{ minHeight: '50vw', maxHeight: '100vh' }}
+        ref={textRef}
       >
         <div>
           <h2 className='text-4xl'>{title}</h2>
