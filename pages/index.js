@@ -22,6 +22,7 @@ import Card, { CardContent, CardContentList } from '../components/Card';
 import Cards from '../components/Cards';
 import animateOnScroll from '../utils/animateOnScroll';
 import ImageCover from '../components/ImageCover';
+import BlogLinks from '../components/BlogLinks';
 
 const images = [
   // {src: '/images/GOPR9291.jpg', alt: 'rock arch', width: 3000, height: 2250},
@@ -91,7 +92,7 @@ export default function Home() {
     animateOnScroll();
   }, []);
   return (
-    <div>
+    <div className='w-full bg-yellow-300'>
       <Head>
         <title>Next.js Starter Site</title>
         <meta
@@ -101,7 +102,7 @@ export default function Home() {
         <link rel='icon' href='/favicon.ico' />
       </Head>
 
-      <div className='w-screen flex flex-col justify-center items-center'>
+      <div className='w-full flex flex-col justify-center items-center'>
         <Hero />
         <button onClick={() => setPhotoModalVisible(true)}>Show Photos</button>
 
@@ -175,6 +176,8 @@ export default function Home() {
         {/* <div className='parallax w-full h-screen relative z-0'>
           <Image src='/images/GOPR9304.jpg' layout='fill' objectFit='cover' />
         </div> */}
+
+        <BlogLinks />
 
         <Contact />
         {/* <Button title='check' className='text-white bg-black' disabled /> */}

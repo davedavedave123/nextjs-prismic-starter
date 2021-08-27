@@ -27,7 +27,7 @@ const Contact = () => {
   return (
     <div className='flex flex-col pb-10 my-10 border-b border-gray-300 lg:border-0 lg:block'>
       <div>
-        <div className='w-60 h-10 relative'>
+        <div className='w-full md:w-60 h-10 relative'>
           <Image src='/images/logo.png' layout='fill' objectFit='cover' />
         </div>
         <div className='py-5'>

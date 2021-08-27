@@ -65,7 +65,7 @@ export default function Card({
 }) {
   return (
     <div
-      className='anim-up anim-card w-80 h-96 flex-shrink-0 rounded-xl overflow-hidden relative shadow-xl my-20'
+      className='anim-up anim-card w-full md:w-80 h-96 flex-shrink-0 rounded-xl overflow-hidden relative shadow-xl my-20'
       style={{ height: '40rem' }}
       data-animdelay={delay}
     >
