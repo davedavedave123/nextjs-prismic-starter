@@ -23,7 +23,7 @@ export default function Services() {
   return (
     <div className='w-full relative flex flex-col md:flex-row items-center sm:justify-around'>
       {SERVICES.map((service, index) => (
-        <div className='w-60' key={`service-${index}`}>
+        <div className='w-full px-10 sm:w-60 sm:px-0' key={`service-${index}`}>
           <ServiceWithImage
             img={service.img}
             title={service.title}

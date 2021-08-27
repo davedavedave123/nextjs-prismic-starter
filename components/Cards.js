@@ -87,7 +87,7 @@ export default function Cards() {
   const { isLgDown } = useBreakPoints();
 
   return (
-    <div className='w-full relative flex flex-col items-center lg:flex-row lg:justify-around'>
+    <div className='w-full relative flex flex-col items-center px-4 sm:px-0 lg:flex-row lg:justify-around'>
       {cardsContent.map((card, index) => (
         <Card
           delay={!isLgDown && 0.2 * index}

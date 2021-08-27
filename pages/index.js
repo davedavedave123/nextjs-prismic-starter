@@ -47,19 +47,6 @@ const cardContentList = [
 ];
 
 const Hero = () => {
-  const { observe, unobserve, width, height, entry } = useDimensions({
-    onResize: ({ observe, unobserve, width, height, entry }) => {
-      // Triggered whenever the size of the target is changed...
-
-      unobserve(); // To stop observing the current target element
-      observe(); // To re-start observing the current target element
-    },
-  });
-
-  const masterWidth = 5472;
-  const masterHeight = 3648;
-  const ratio = masterHeight / masterWidth;
-
   return (
     <div className='w-full h-screen relative flex items-center justify-center'>
       <div className='absolute left-0 top-0 w-full h-full'>
@@ -75,7 +62,7 @@ const Hero = () => {
         <p className='text-orange'>
           Small little message before the big kicker.
         </p>
-        <h1>Big brand message</h1>
+        <h1 className=''>Big brand message</h1>
         <h3 className='max-w-3xl'>
           Some other message, just a little smaller. We care about things.
         </h3>
@@ -92,7 +79,7 @@ export default function Home() {
     animateOnScroll();
   }, []);
   return (
-    <div className='w-full bg-yellow-300'>
+    <div className='w-full'>
       <Head>
         <title>Next.js Starter Site</title>
         <meta
@@ -180,17 +167,6 @@ export default function Home() {
         <BlogLinks />
 
         <Contact />
-        {/* <Button title='check' className='text-white bg-black' disabled /> */}
-        {/* <Card src='/images/GOPR9291.jpg' alt='something'>
-          <CardContent
-            smallTitle='Some Small Title'
-            bigTitle='Big Title'
-            buttonTitle='FIND OUT MORE'
-            buttonOnClick={() => alert('click')}
-          >
-            <CardContentList list={cardContentList} />
-          </CardContent>
-        </Card> */}
         <Cards />
         <Footer />
       </div>

@@ -3,7 +3,7 @@ import ImageLink from './ImageLink';
 
 export default function BlogLinks() {
   return (
-    <div className='w-full relative lg:grid lg:grid-cols-2 xl:grid-cols-3'>
+    <div className='w-full relative pb-0 lg:pb-10 lg:grid lg:grid-cols-2 xl:grid-cols-3'>
       <ImageLink
         to='/blog'
         title='Our Project'
