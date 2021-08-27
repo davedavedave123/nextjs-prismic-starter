@@ -23,7 +23,7 @@ export default function ImageLink({ to, title, img }) {
 
   return (
     <div
-      className='h-60 w-full md:w-96 mx-auto my-32 lg:my-20'
+      className='h-60 w-full md:w-96 mx-auto my-40 lg:my-40'
       // className='h-60 w-96'
       onMouseEnter={onHover}
       onMouseLeave={onUnhover}

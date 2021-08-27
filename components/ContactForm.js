@@ -142,7 +142,6 @@ export default function ContactForm({ variant = 1 }) {
               ? 'Something went wrong :/'
               : 'SEND MESSAGE'
           }
-          style={styles.button}
           disabled={submitted || submitting || errorSubmitting}
           spinner={submitting}
           className={`${submitClassName}`}
