@@ -47,6 +47,7 @@ const cardContentList = [
 ];
 
 const Hero = () => {
+  const [spinner, setSpinner] = useState(false);
   return (
     <div className='w-full h-screen relative flex items-center justify-center'>
       <div className='absolute left-0 top-0 w-full h-full'>
@@ -66,7 +67,11 @@ const Hero = () => {
         <h3 className='max-w-3xl'>
           Some other message, just a little smaller. We care about things.
         </h3>
-        <Button title='CALL TO ACTION' />
+        <Button
+          title='CALL TO ACTION'
+          spinner={spinner}
+          onClick={() => setSpinner(!spinner)}
+        />
       </div>
     </div>
   );
