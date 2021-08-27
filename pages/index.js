@@ -1,14 +1,5 @@
 import Head from 'next/head';
 import { useEffect, useState } from 'react';
-import {
-  isMobile,
-  MobileView,
-  isTablet,
-  BrowserView,
-} from 'react-device-detect';
-import Image from 'next/image';
-import useDimensions from 'react-cool-dimensions';
-import * as Yup from 'yup';
 
 import PhotoModal from '../components/PhotoModal';
 import Services from '../components/Services';
@@ -18,49 +9,16 @@ import Contact from '../components/Contact';
 import Footer from '../components/Footer';
 
 import Button from '../components/Button';
-
-import Card, { CardContent, CardContentList } from '../components/Card';
 import Cards from '../components/Cards';
 import animateOnScroll from '../utils/animateOnScroll';
 import ImageCover from '../components/ImageCover';
 import BlogLinks from '../components/BlogLinks';
-import SubmitButton from '../components/forms/SubmitButton';
-import Form from '../components/forms/Form';
 
 const images = [
   // {src: '/images/GOPR9291.jpg', alt: 'rock arch', width: 3000, height: 2250},
   { src: '/images/digger.jpg', alt: 'rock arch', width: 3000, height: 1000 },
   { src: '/images/quarry.jpg', alt: 'big rock', width: 3000, height: 1858 },
   { src: '/images/snow.jpg', alt: 'stoked', width: 3000, height: 2250 },
-];
-
-const validationSchema = Yup.object().shape({
-  fullName: Yup.string().required().label('Full Name'),
-  email: Yup.string().email().required().label('Email'),
-  phone: Yup.number().typeError('Phone must be a number').label('Phone'),
-  message: Yup.string().label('Message').max(1000),
-});
-
-const initialValues = {
-  fullName: '',
-  email: '',
-  phone: '',
-  message: '',
-};
-
-const cardContentList = [
-  {
-    icon: { src: '/icons/tick.svg', alt: 'tick' },
-    text: 'first line description of what we do',
-  },
-  {
-    icon: { src: '/icons/tick.svg', alt: 'tick' },
-    text: 'second line description',
-  },
-  {
-    icon: { src: '/icons/tick.svg', alt: 'tick' },
-    text: 'third line medium description',
-  },
 ];
 
 const Hero = () => {
