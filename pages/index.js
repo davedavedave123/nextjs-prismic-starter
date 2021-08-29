@@ -96,11 +96,11 @@ export default function Home() {
           title='This is the big title'
         >
           <p className='my-5'>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi
-            elementum vitae quam ut venenatis. Maecenas at dui non metus pretium
-            lobortis. Phasellus vestibulum lacinia lacus id mollis. Fusce
-            scelerisque massa nec gravida accumsan. Proin sed felis rutrum,
-            imperdiet est non, consectetur odio.
+            Hi this is Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            Morbi elementum vitae quam ut venenatis. Maecenas at dui non metus
+            pretium lobortis. Phasellus vestibulum lacinia lacus id mollis.
+            Fusce scelerisque massa nec gravida accumsan. Proin sed felis
+            rutrum, imperdiet est non, consectetur odio.
           </p>
           <p className='my-5'>
             Pellentesque habitant morbi tristique senectus et netus et malesuada
