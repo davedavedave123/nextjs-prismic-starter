@@ -7,9 +7,12 @@ import NavComponent from './NavComponent';
 import NavDropdownMenu from './NavDropdownMenu';
 
 import NavLink from './NavLink';
-import navItems from '../../config/navItems';
+// import navItems from '../../config/navItems';
 import BrandLogo from '../BrandLogo';
 import NavMenu_mobile from './NavMenu_mobile';
+
+// adapters
+import { getMenuItems_adapter } from '../../adapters/navMenuItems_adapter';
 
 /**
  * Exects data as:
@@ -32,10 +35,19 @@ export default function Navbar({
   navClassName,
   ulClassName,
   liClassName,
+  menu,
+  twoLevelMenu,
 }) {
   const { isLgDown } = useBreakPoints();
   const menuOpen = useNavMenu();
   const setMenuOpen = useSetNavMenu();
+
+  const navItems = getMenuItems_adapter(twoLevelMenu);
+
+  useEffect(() => {
+    // console.log('NavBar menu', menu);
+    console.log('twoLevelMenu', getMenuItems_adapter(twoLevelMenu));
+  }, []);
 
   return (
     <>
