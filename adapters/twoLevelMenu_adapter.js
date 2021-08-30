@@ -8,7 +8,7 @@ const getSubMenuItem = menuItem => {
   return { title, to };
 };
 
-const getMenuItem = menuItem => {
+const getPrimaryMenuItem = menuItem => {
   const { primary } = menuItem;
   const title = RichText.asText(primary.label);
   const to = primary.link?.type ? linkResolver(primary.link) : '';
@@ -22,10 +22,10 @@ const getMenuItem = menuItem => {
   return item;
 };
 
-export const getMenuItems_adapter = prismicMenuItems => {
+export const twoLevelMenu_adapter = prismicMenuItems => {
   const menuItems = prismicMenuItems.data.nav;
 
-  return menuItems.map(getMenuItem);
+  return menuItems.map(getPrimaryMenuItem);
 
   // Map through each menuItem
   // Extract title and link

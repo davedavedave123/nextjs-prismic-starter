@@ -21,6 +21,7 @@ export default function NavHoverMenu({
 }) {
   const openButtonRef = useRef(null);
   const menuWrapperRef = useRef(null);
+  const linksWrapperRef = useRef(null);
 
   const [menuItemRefs, setMenuItemRefs] = useState([]);
 
@@ -37,12 +38,21 @@ export default function NavHoverMenu({
       ...DEFAULTS,
     });
 
-    const currentMenuItems = getCurrentRefs(menuItemRefs);
-    gsap.to(
-      currentMenuItems,
-      // { y: -50, opacity: 0, stagger: 0.1, ...DEFAULTS }
-      { y: 0, opacity: 1, stagger: 0.1, ...DEFAULTS }
+    gsap.fromTo(
+      linksWrapperRef.current,
+      { y: -50 },
+      {
+        y: 0,
+        ...DEFAULTS,
+      }
     );
+
+    // const currentMenuItems = getCurrentRefs(menuItemRefs);
+    // gsap.fromTo(
+    //   currentMenuItems,
+    //   { y: -50 },
+    //   { y: 0, stagger: 0.05, ...DEFAULTS }
+    // );
   };
 
   const handleUnhover = () => {
@@ -51,12 +61,21 @@ export default function NavHoverMenu({
       ...DEFAULTS,
     });
 
-    const currentMenuItems = getCurrentRefs(menuItemRefs);
-    gsap.to(
-      [...currentMenuItems].reverse(),
-      // { y: 0, opacity: 1 },
-      { y: -50, opacity: 0, stagger: 0.05, ...DEFAULTS }
+    gsap.fromTo(
+      linksWrapperRef.current,
+      { y: 0 },
+      {
+        y: -50,
+        ...DEFAULTS,
+      }
     );
+
+    // const currentMenuItems = getCurrentRefs(menuItemRefs);
+    // gsap.to(
+    //   [...currentMenuItems].reverse(),
+    //   // { y: 0, opacity: 1 },
+    //   { y: -50, stagger: 0.05, ...DEFAULTS }
+    // );
   };
 
   return (
@@ -80,12 +99,12 @@ export default function NavHoverMenu({
       >
         {/* A padder to make the gap between the hover button and the menu items larger */}
         <div className='h-4 w-full '></div>
-        <ul>
+        <ul ref={linksWrapperRef}>
           {menuItems.map((item, index) => (
             <li key={`hoverMenuItem-${index}`}>
               <Link href={item.to}>
                 <a
-                  className={`relative block px-10 py-3 opacity-0 ${menuItemClassName}`}
+                  className={`relative block px-10 py-3 ${menuItemClassName}`}
                   ref={menuItemRefs[index]}
                   style={menuItemStyle}
                 >

@@ -12,7 +12,7 @@ import BrandLogo from '../BrandLogo';
 import NavMenu_mobile from './NavMenu_mobile';
 
 // adapters
-import { getMenuItems_adapter } from '../../adapters/navMenuItems_adapter';
+import { twoLevelMenu_adapter } from '../../adapters/twoLevelMenu_adapter';
 
 /**
  * Exects data as:
@@ -42,12 +42,7 @@ export default function Navbar({
   const menuOpen = useNavMenu();
   const setMenuOpen = useSetNavMenu();
 
-  const navItems = getMenuItems_adapter(twoLevelMenu);
-
-  useEffect(() => {
-    // console.log('NavBar menu', menu);
-    console.log('twoLevelMenu', getMenuItems_adapter(twoLevelMenu));
-  }, []);
+  const navItems = twoLevelMenu_adapter(twoLevelMenu);
 
   return (
     <>
