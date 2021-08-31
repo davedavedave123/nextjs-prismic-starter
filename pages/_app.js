@@ -1,15 +1,21 @@
 import { useEffect, useRef } from 'react';
 import '../styles/globals.css';
 import { useRouter } from 'next/router';
-
-import MasterContextProvider from '../context/MasterContextProvider';
-import Navbar from '../components/nav/Navbar';
-import navItems from '../config/navItems';
-import { useNavMenu } from '../context/navMenu';
 import App from 'next/app';
 
+// components
+import Navbar from '../components/nav/Navbar';
+import Footer from '../components/Footer';
+
+// context and config
+import MasterContextProvider from '../context/MasterContextProvider';
+import navItems from '../config/navItems';
+
+// hooks
+import { useNavMenu } from '../context/navMenu';
 import { Client } from '../utils/prismicHelpers';
 
+// google analytics
 import * as ga from '../lib/ga';
 
 const Wrapper = ({ Component, pageProps, props }) => {
@@ -24,6 +30,7 @@ const Wrapper = ({ Component, pageProps, props }) => {
       />
       <div className={`w-screen ${navMenuOpen && ''}`}>
         <Component {...pageProps} />
+        <Footer />
       </div>
     </>
   );

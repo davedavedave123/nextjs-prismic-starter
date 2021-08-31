@@ -150,7 +150,7 @@ export default function Home() {
 
         <Contact />
         <Cards />
-        <Footer />
+        {/* <Footer /> */}
       </div>
     </div>
   );

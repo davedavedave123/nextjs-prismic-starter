@@ -25,6 +25,12 @@ export const linkResolver = doc => {
   if (doc.type === 'home_page') {
     return `/`;
   }
+  if (doc.type === 'blog_home') {
+    return `/blog`;
+  }
+  if (doc.type === 'blog') {
+    return `/blog/${doc.uid}`;
+  }
   // if(doc.type === 'home')
   return '/';
 };
