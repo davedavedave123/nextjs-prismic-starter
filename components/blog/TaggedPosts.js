@@ -29,6 +29,8 @@ const RelatedPost = ({ post }) => (
 
 export default function TaggedPosts({ posts, currentUid }) {
   const router = useRouter();
+
+  // format and then filter out the current pages post
   const formattedPosts = taggedPostsLinks_adapter(posts).filter(
     post => post.to !== router.asPath
   );
