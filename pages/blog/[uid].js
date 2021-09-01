@@ -7,6 +7,7 @@ import TaggedPosts from '../../components/blog/TaggedPosts';
 import { Client } from '../../utils/prismicHelpers';
 import Gallery from '../../components/blog/Gallery';
 import ImageCover from '../../components/ImageCover';
+import ImageCover_prisimic from '../../components/ImageCover_prismic';
 
 export default function BlogPage(props) {
   const { data } = props;
@@ -26,17 +27,16 @@ export default function BlogPage(props) {
   }, []);
 
   return (
-    <div className='w-full'>
+    <div className='w-full px-5'>
       <div className='max-w-7xl mx-auto'>
         <article className='pt-20'>
           <h1 className='py-10'>{RichText.asText(data.title)}</h1>
 
           <div className='py-14'>
-            <ImageCover
-              src={data.featured_image.url}
-              alt={data.featured_image.alt}
-              width={data.featured_image.dimensions.width}
-              height={data.featured_image.dimensions.height}
+            <ImageCover_prisimic
+              image={data.featured_image}
+              clgImage
+              responsive
             />
           </div>
           <div className='py-14 text-lg'>

@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react';
 import { Client } from '../utils/prismicHelpers';
+// ESLint stops you from using useGetStaticProps in deployment because it assumes it is a hook. Name change fixes it.
 import {
   useGetStaticProps as makeGetStaticProps,
   useGetStaticPaths as makeGetStaticPaths,
