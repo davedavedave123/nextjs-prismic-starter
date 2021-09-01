@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import { useGetStaticProps } from 'next-slicezone/hooks';
 import Prismic from '@prismicio/client';
 import { Client } from '../../utils/prismicHelpers';
 
@@ -36,20 +35,3 @@ export const getStaticProps = async ({ params }) => {
     },
   };
 };
-
-// export const getStaticProps = useGetStaticProps({
-//   client: Client(),
-//   queryType: 'repeat',
-//   type: 'blog',
-//   apiParams({ params }) {
-//     // params are passed by getStaticPaths
-//     return {
-//       uid: params.uid,
-//     };
-//   },
-//   // apiParams({ params }) {
-//   //   return {
-//   //     uid: params.uid,
-//   //   };
-//   // },
-// });

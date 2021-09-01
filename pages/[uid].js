@@ -1,6 +1,9 @@
 import React, { useEffect } from 'react';
 import { Client } from '../utils/prismicHelpers';
-import { useGetStaticProps, useGetStaticPaths } from 'next-slicezone/hooks';
+import {
+  useGetStaticProps as makeGetStaticProps,
+  useGetStaticPaths as makeGetStaticPaths,
+} from 'next-slicezone/hooks';
 import { RichText } from 'prismic-reactjs';
 
 export default function Page(props) {
@@ -29,7 +32,7 @@ export default function Page(props) {
   );
 }
 
-export const getStaticProps = useGetStaticProps({
+export const getStaticProps = makeGetStaticProps({
   client: Client(),
   queryType: 'repeat',
   type: 'page',
@@ -40,7 +43,7 @@ export const getStaticProps = useGetStaticProps({
   },
 });
 
-export const getStaticPaths = useGetStaticPaths({
+export const getStaticPaths = makeGetStaticPaths({
   client: Client(),
   type: 'page',
   formatPath: prismicDocument => {

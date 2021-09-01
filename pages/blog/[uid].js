@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { useGetStaticProps, useGetStaticPaths } from 'next-slicezone/hooks';
+import { useGetStaticPaths as makeGetStaticPaths } from 'next-slicezone/hooks';
 import { RichText } from 'prismic-reactjs';
 import Prismic from '@prismicio/client';
 
@@ -50,18 +50,6 @@ export default function BlogPage(props) {
   );
 }
 
-// export const getStaticProps = useGetStaticProps({
-//   client: Client(),
-//   queryType: 'repeat',
-//   type: 'blog',
-//   apiParams({ params }) {
-//     console.log('params uid:', params.uid);
-//     return {
-//       uid: params.uid,
-//     };
-//   },
-// });
-
 export async function getStaticProps({
   params,
   preview = null,
@@ -70,8 +58,6 @@ export async function getStaticProps({
   const { ref } = previewData;
 
   const client = Client();
-
-  console.log('params uid:', params.uid);
 
   const doc = await client.getByUID('blog', params.uid);
 
@@ -92,7 +78,7 @@ export async function getStaticProps({
   };
 }
 
-export const getStaticPaths = useGetStaticPaths({
+export const getStaticPaths = makeGetStaticPaths({
   client: Client(),
   type: 'blog',
   formatPath: prismicDocument => {
