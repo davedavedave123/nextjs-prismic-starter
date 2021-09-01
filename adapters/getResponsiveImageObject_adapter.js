@@ -31,6 +31,7 @@ const getResponsiveImageWidths = image => {
   return widths.sort((a, b) => a.width - b.width);
 };
 
+// Find the next largest image from the parent
 const getImageKey = (widths, parent) =>
   widths.find(item => item.width > parent.width);
 
