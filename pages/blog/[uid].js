@@ -3,6 +3,7 @@ import { useGetStaticProps, useGetStaticPaths } from 'next-slicezone/hooks';
 import { RichText } from 'prismic-reactjs';
 import Prismic from '@prismicio/client';
 
+import TaggedPosts from '../../components/blog/TaggedPosts';
 import { Client } from '../../utils/prismicHelpers';
 import Gallery from '../../components/blog/Gallery';
 import ImageCover from '../../components/ImageCover';
@@ -43,6 +44,7 @@ export default function BlogPage(props) {
           </div>
           <Gallery gallery={data.gallery} />
         </article>
+        <TaggedPosts posts={props.taggedArticles} />
       </div>
     </div>
   );
@@ -71,16 +73,20 @@ export async function getStaticProps({
 
   console.log('params uid:', params.uid);
 
-  const doc = await client.getByUID('blog', 'tractors');
+  const doc = await client.getByUID('blog', params.uid);
 
-  const tags = await client.query(
-    Prismic.Predicates.at('document.tags', ['tractors'])
-  );
+  // use Prismic.Predicates.at to target posts that specifically contain those tags
+  const taggedArticles =
+    doc.tags.length > 0
+      ? await client.query(Prismic.Predicates.any('document.tags', doc.tags), {
+          pageSize: 8,
+        })
+      : [];
 
   return {
     props: {
       ...doc,
-      taggedArticles: tags?.results ? tags.results : [],
+      taggedArticles: taggedArticles?.results ? taggedArticles.results : [],
       preview,
     },
   };
