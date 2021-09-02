@@ -55,6 +55,9 @@ export default function ImageCover({
     imgAlt = alt;
     imgWidth = width;
     imgHeight = height;
+    // if (clgImage) {
+    //   console.log('ImageCover image:', { imgSrc, imgWidth, imgHeight });
+    // }
   }
 
   const ratio = imgHeight / imgWidth;

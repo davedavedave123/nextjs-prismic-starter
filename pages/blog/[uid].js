@@ -3,7 +3,7 @@ import { useGetStaticPaths as makeGetStaticPaths } from 'next-slicezone/hooks';
 import { RichText } from 'prismic-reactjs';
 import Prismic from '@prismicio/client';
 
-import TaggedPosts from '../../components/blog/TaggedPosts';
+import RelatedPosts from '../../components/blog/RelatedPosts';
 import { Client } from '../../utils/prismicHelpers';
 import Gallery from '../../components/blog/Gallery';
 import ImageCover from '../../components/ImageCover';
@@ -33,14 +33,14 @@ export default function BlogPage(props) {
           <h1 className='py-10'>{RichText.asText(data.title)}</h1>
 
           <div className='py-14'>
-            <ImageCover image={data.featured_image} clgImage responsive />
+            <ImageCover image={data.featured_image} responsive />
           </div>
           <div className='py-14 text-lg'>
             <RichText render={data.content} />
           </div>
           <Gallery gallery={data.gallery} />
         </article>
-        <TaggedPosts posts={props.taggedArticles} />
+        <RelatedPosts posts={props.taggedArticles} />
       </div>
     </div>
   );

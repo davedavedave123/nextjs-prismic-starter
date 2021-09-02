@@ -10,10 +10,11 @@ export default function GalleryImage({ galleryImage }) {
   return (
     <div className='w-full h-full relative'>
       <ImageCover
-        src={image.url}
-        alt={image.alt}
-        height={image.dimensions.height}
-        width={image.dimensions.width}
+        image={image}
+        // src={image.url}
+        // alt={image.alt}
+        // height={image.dimensions.height}
+        // width={image.dimensions.width}
       />
       {caption && (
         <div

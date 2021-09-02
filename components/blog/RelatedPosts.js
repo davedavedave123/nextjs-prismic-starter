@@ -24,7 +24,7 @@ const RelatedPost = ({ post, index }) => (
   </Link>
 );
 
-export default function TaggedPosts({ posts, currentUid }) {
+export default function RelatedPosts({ posts, currentUid }) {
   const router = useRouter();
 
   // format and then filter out the current pages post
@@ -36,7 +36,7 @@ export default function TaggedPosts({ posts, currentUid }) {
     return (
       <div className='w-full py-20'>
         <h4 className='py-5'>Related Posts</h4>
-        <div className='w-full md:grid grid-cols-4 auto-rows-auto'>
+        <div className='w-full sm:grid sm:grid-cols-2 lg:grid-cols-4 auto-rows-auto'>
           {formattedPosts.map((post, index) => (
             <RelatedPost
               post={post}
