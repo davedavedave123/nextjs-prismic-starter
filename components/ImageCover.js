@@ -2,8 +2,12 @@ import React from 'react';
 import Image from 'next/image';
 import useDimensions from 'react-cool-dimensions';
 
+import getResponsiveImageObject_adapter from '../adapters/getResponsiveImageObject_adapter';
+
 // A responsive version of layout='fill' objectFit='cover'
 export default function ImageCover({
+  image,
+  clgImage,
   src,
   blurSrc,
   alt,
@@ -28,8 +32,33 @@ export default function ImageCover({
     },
   });
 
-  const ratio = height / width;
-  const imgHeight = parentWidth * ratio;
+  let imgSrc = src;
+  let imgBlurSrc = blurSrc;
+  let imgAlt = alt;
+  let imgWidth = width;
+  let imgHeight = height;
+
+  // If there is a prismic image object then use the src responsively based on parent dimensions
+  if (image) {
+    const { src, blurSrc, alt, width, height } =
+      getResponsiveImageObject_adapter(
+        image,
+        {
+          width: parentWidth,
+          height: parentHeight,
+        },
+        clgImage
+      );
+
+    imgSrc = src;
+    imgBlurSrc = blurSrc;
+    imgAlt = alt;
+    imgWidth = width;
+    imgHeight = height;
+  }
+
+  const ratio = imgHeight / imgWidth;
+  imgHeight = parentWidth * ratio;
 
   // Makes sure that the img is never smaller than the screen size
   const imgHeight_adjusted =
@@ -64,13 +93,13 @@ export default function ImageCover({
         }}
       >
         <Image
-          src={src}
-          alt={alt}
+          src={imgSrc}
+          alt={imgAlt}
           width={imgWidth_adjusted}
           height={imgHeight_adjusted}
           layout='responsive'
-          placeholder={blurSrc ? 'blur' : 'empty'}
-          blurDataURL={blurSrc}
+          placeholder={imgBlurSrc ? 'blur' : 'empty'}
+          blurDataURL={imgBlurSrc}
           {...props}
         />
       </div>

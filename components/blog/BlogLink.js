@@ -3,6 +3,7 @@ import { RichText } from 'prismic-reactjs';
 
 // componants
 import ImageCover from '../ImageCover';
+import ImageCover_prismic from '../ImageCover_prismic';
 import trimText from '../../utils/trimText';
 import Link from 'next/link';
 import { linkResolver } from '../../prismic-configuration';
@@ -19,12 +20,7 @@ const FeaturedImage = ({ image }) => {
       }}
       ref={imgRef}
     >
-      <ImageCover
-        src={image.url}
-        alt={image.alt}
-        width={image.dimensions.width}
-        height={image.dimensions.height}
-      />
+      <ImageCover_prismic image={image} />
     </div>
   );
 };

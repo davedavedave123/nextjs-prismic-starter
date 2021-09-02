@@ -33,11 +33,7 @@ export default function BlogPage(props) {
           <h1 className='py-10'>{RichText.asText(data.title)}</h1>
 
           <div className='py-14'>
-            <ImageCover_prisimic
-              image={data.featured_image}
-              clgImage
-              responsive
-            />
+            <ImageCover image={data.featured_image} clgImage responsive />
           </div>
           <div className='py-14 text-lg'>
             <RichText render={data.content} />

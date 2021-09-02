@@ -3,8 +3,6 @@ import Image from 'next/image';
 import useDimensions from 'react-cool-dimensions';
 
 import ImageCover from './ImageCover';
-import useBreakPoints from '../hooks/useBreakPoints';
-import getImageObject_adapter from '../adapters/getImageObject_adapter';
 import getResponsiveImageObject_adapter from '../adapters/getResponsiveImageObject_adapter';
 
 // A responsive version of layout='fill' objectFit='cover'
@@ -37,6 +35,7 @@ export default function ImageCover_prisimic({
     },
   });
 
+  // monitor dimensions of parent and return the image that matches those dimensions best
   const { src, blurSrc, alt, width, height } = getResponsiveImageObject_adapter(
     image,
     {
@@ -46,6 +45,7 @@ export default function ImageCover_prisimic({
     clgImage
   );
 
+  // in this case 'responsive' refers to the layout='responsive' in the next/image Image component
   if (responsive)
     return (
       <Image
@@ -60,7 +60,6 @@ export default function ImageCover_prisimic({
       />
     );
 
-  // monitor dimensions of parent and return the image that matches those dimensions best
   return (
     <div className='w-full h-full relative' ref={observe}>
       <ImageCover

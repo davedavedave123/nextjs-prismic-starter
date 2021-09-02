@@ -63,7 +63,7 @@ export default function Navbar({
               onClick={() => setMenuOpen(!menuOpen)}
               menuOpen={menuOpen}
             />
-            <NavMenu_mobile />
+            <NavMenu_mobile navItems={navItems} />
           </>
         ) : (
           <NavComponent
