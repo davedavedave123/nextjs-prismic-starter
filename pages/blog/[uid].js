@@ -2,7 +2,9 @@ import React, { useEffect } from 'react';
 import { useGetStaticPaths as makeGetStaticPaths } from 'next-slicezone/hooks';
 import { RichText } from 'prismic-reactjs';
 import Prismic from '@prismicio/client';
+import SliceZone from 'next-slicezone';
 
+import resolver from '../../sm-resolver';
 import RelatedPosts from '../../components/blog/RelatedPosts';
 import { Client } from '../../utils/prismicHelpers';
 import Gallery from '../../components/blog/Gallery';
@@ -11,19 +13,14 @@ import ImageCover_prisimic from '../../components/ImageCover_prismic';
 
 export default function BlogPage(props) {
   const { data } = props;
-  // const {
-  //   data: { gallery, featured_image, title, content },
-  // } = props;
 
-  // const getTags = async () => {
-  //   console.log('gettings tags');
-  //   const tags = await Client().getTags('tractors');
-  //   console.log('tags:', tags);
-  // };
+  // unless you use useGetStaticProps, you need to create a slices array at root level in props for SliceZone
+  const sliceProps = { ...props };
+  sliceProps.slices = props.data.body;
 
   useEffect(() => {
     console.log('blog props', props);
-    // getTags();
+    console.log('blog sliceProps', sliceProps);
   }, []);
 
   return (
@@ -39,6 +36,12 @@ export default function BlogPage(props) {
             <RichText render={data.content} />
           </div>
           <Gallery gallery={data.gallery} />
+          <SliceZone {...sliceProps} resolver={resolver} />
+          <script
+            async
+            defer
+            src='https://static.cdn.prismic.io/prismic.js?new=true&repo=tropics-nextjs-test'
+          ></script>
         </article>
         <RelatedPosts posts={props.taggedArticles} />
       </div>

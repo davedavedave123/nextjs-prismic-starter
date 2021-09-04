@@ -56,6 +56,7 @@ export const CardContent = ({
 };
 
 export default function Card({
+  image,
   src,
   alt,
   imgWidth,
@@ -70,7 +71,13 @@ export default function Card({
       data-animdelay={delay}
     >
       <div className='w-full h-1/2 relative'>
-        <ImageCover src={src} alt={alt} width={imgWidth} height={imgHeight} />
+        <ImageCover
+          image={image}
+          src={src}
+          alt={alt}
+          width={imgWidth}
+          height={imgHeight}
+        />
       </div>
       {/* <CardContent /> */}
       {children}

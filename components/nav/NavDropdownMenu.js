@@ -98,13 +98,13 @@ export default function NavHoverMenu({
         ref={menuWrapperRef}
       >
         {/* A padder to make the gap between the hover button and the menu items larger */}
-        <div className='h-4 w-full '></div>
+        <div className='h-4 w-full'></div>
         <ul ref={linksWrapperRef}>
           {menuItems.map((item, index) => (
             <li key={`hoverMenuItem-${index}`}>
               <Link href={item.to}>
                 <a
-                  className={`relative block px-10 py-3 ${menuItemClassName}`}
+                  className={`relative block px-10 py-3 bg-white ${menuItemClassName}`}
                   ref={menuItemRefs[index]}
                   style={menuItemStyle}
                 >
