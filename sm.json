@@ -1,5 +1,5 @@
 {
-  "apiEndpoint": "https://thegreatslicemachinetest.cdn.prismic.io/api/v2",
+  "apiEndpoint": "https://tropics-nextjs-test.cdn.prismic.io/api/v2",
   "libraries": [
     "@/slices"
   ],

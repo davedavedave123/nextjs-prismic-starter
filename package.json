@@ -7,7 +7,9 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "slicemachine": "start-slicemachine --port 9999"
+    "slicemachine": "start-slicemachine --port 9999",
+    "storybook": "start-storybook -p 8888",
+    "build-storybook": "build-storybook"
   },
   "dependencies": {
     "@prismicio/client": "^5.1.0",
@@ -35,13 +37,15 @@
     "yup": "^0.32.9"
   },
   "devDependencies": {
-    "@storybook/react": "^6.3.8",
+    "@storybook/react": "^6.2.8",
     "autoprefixer": "^10.2.6",
     "eslint": "7.29.0",
     "eslint-config-next": "11.0.1",
     "postcss": "^8.3.5",
     "slice-machine-ui": "0.0.46",
     "sm-commons": "0.0.23",
-    "tailwindcss": "^2.2.4"
+    "tailwindcss": "^2.2.4",
+    "babel-loader": "^8.2.2",
+    "babel-plugin-react-require": "^3.1.3"
   }
 }
