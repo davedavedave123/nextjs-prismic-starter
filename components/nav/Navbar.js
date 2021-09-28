@@ -49,7 +49,7 @@ export default function Navbar({
       {/* <div className='absolute top-0 left-0 w-full h-full z-50' ref={navRef}> */}
       <div
         style={{ ...style_nav }}
-        className={`border-b bg-white border-black fixed z-40 top-0 left-0 w-full flex items-center justify-between ${navClassName}`}
+        className={`border-b border-black fixed z-40 top-0 left-0 w-full flex items-center justify-between ${navClassName}`}
       >
         {/* Brand logo */}
         <div className='relative pl-5'>

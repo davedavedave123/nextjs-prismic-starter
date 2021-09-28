@@ -104,7 +104,8 @@ export default function NavHoverMenu({
             <li key={`hoverMenuItem-${index}`}>
               <Link href={item.to}>
                 <a
-                  className={`relative block px-10 py-3 bg-white ${menuItemClassName}`}
+                  // TO STYLE DROPDOWN ITEM, ADD CLASS NAMES HERE
+                  className={`relative block px-10 py-3  ${menuItemClassName}`}
                   ref={menuItemRefs[index]}
                   style={menuItemStyle}
                 >

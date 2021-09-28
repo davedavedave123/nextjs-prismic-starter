@@ -5,6 +5,7 @@ const SetNavMenu = createContext();
 
 export default function NavMenuProvider({ children }) {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [items, setItems] = useState([]);
 
   return (
     <NavMenu.Provider value={menuOpen}>
