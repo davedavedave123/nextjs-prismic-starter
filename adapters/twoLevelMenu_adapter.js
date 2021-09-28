@@ -23,6 +23,7 @@ const getPrimaryMenuItem = menuItem => {
 };
 
 export const twoLevelMenu_adapter = prismicMenuItems => {
+  if (prismicMenuItems?.data?.nav === undefined) return [];
   const menuItems = prismicMenuItems.data.nav;
 
   return menuItems.map(getPrimaryMenuItem);

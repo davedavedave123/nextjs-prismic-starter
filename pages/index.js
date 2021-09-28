@@ -6,7 +6,8 @@ import Services from '../components/Services';
 import ImageWithText from '../components/ImageWithText1';
 import ImageWithText2 from '../components/ImageWithText2';
 import Contact from '../components/Contact';
-import Footer from '../components/Footer';
+
+import Layout from '../components/Layout';
 
 import Button from '../components/Button';
 import Cards from '../components/Cards';
@@ -61,7 +62,7 @@ export default function Home() {
   }, []);
 
   return (
-    <div className='w-full'>
+    <Layout>
       <Head>
         <title>Next.js Starter Site</title>
         <meta
@@ -152,6 +153,6 @@ export default function Home() {
         <Cards />
         {/* <Footer /> */}
       </div>
-    </div>
+    </Layout>
   );
 }

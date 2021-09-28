@@ -3,6 +3,9 @@ import '../styles/globals.css';
 import { useRouter } from 'next/router';
 import App from 'next/app';
 
+// adapters
+import { twoLevelMenu_adapter } from '../adapters/twoLevelMenu_adapter';
+
 // components
 import Navbar from '../components/nav/Navbar';
 import Footer from '../components/Footer';
@@ -12,26 +15,29 @@ import MasterContextProvider from '../context/MasterContextProvider';
 import navItems from '../config/navItems';
 
 // hooks
-import { useNavMenu } from '../context/navMenu';
+import { useNavMenuIsOpen, useSetNavMenuItems } from '../context/navMenu';
 import { Client } from '../utils/prismicHelpers';
 
 // google analytics
 import * as ga from '../lib/ga';
 
 const Wrapper = ({ Component, pageProps, props }) => {
-  const navMenuOpen = useNavMenu();
+  const navMenuOpen = useNavMenuIsOpen();
+  const setNavMenuItems = useSetNavMenuItems();
+
+  // Store nav items in context
+  useEffect(() => {
+    const navItems = twoLevelMenu_adapter(props.twoLevelMenu);
+    setNavMenuItems(navItems);
+  }, [props.twoLevelMenu]);
 
   return (
     <>
-      <Navbar
-        data={navItems}
-        menu={props?.menu}
-        twoLevelMenu={props.twoLevelMenu}
-      />
-      <div className={`w-screen ${navMenuOpen && ''}`}>
-        <Component {...pageProps} />
-        <Footer />
-      </div>
+      {/* <Navbar /> */}
+      {/* <div className={`w-screen ${navMenuOpen && ''}`}> */}
+      <Component {...pageProps} />
+      {/* <Footer /> */}
+      {/* </div> */}
     </>
   );
 };

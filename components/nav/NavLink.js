@@ -6,10 +6,10 @@ import { useRouter } from 'next/router';
 import animate from '../../utils/animate';
 
 // context
-import { useNavMenu, useSetNavMenu } from '../../context/navMenu';
+import { useSetNavMenuIsOpen } from '../../context/navMenu';
 
 export default function NavLink({ item, underlineClassName }) {
-  const setMenuOpen = useSetNavMenu();
+  const setMenuOpen = useSetNavMenuIsOpen();
   const router = useRouter();
   const barRef = useRef(null);
 

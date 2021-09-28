@@ -1,18 +1,28 @@
 import React, { createContext, useContext, useState } from 'react';
 
-const NavMenu = createContext();
-const SetNavMenu = createContext();
+const NavMenuIsOpen = createContext();
+const SetNavMenuIsOpen = createContext();
+const NavMenuItems = createContext();
+const SetNavMenuItems = createContext();
 
 export default function NavMenuProvider({ children }) {
-  const [menuOpen, setMenuOpen] = useState(false);
+  const [navMenuIsOpen, setNavMenuIsOpen] = useState(false);
   const [items, setItems] = useState([]);
 
   return (
-    <NavMenu.Provider value={menuOpen}>
-      <SetNavMenu.Provider value={setMenuOpen}>{children}</SetNavMenu.Provider>
-    </NavMenu.Provider>
+    <NavMenuIsOpen.Provider value={navMenuIsOpen}>
+      <SetNavMenuIsOpen.Provider value={setNavMenuIsOpen}>
+        <NavMenuItems.Provider value={items}>
+          <SetNavMenuItems.Provider value={setItems}>
+            {children}
+          </SetNavMenuItems.Provider>
+        </NavMenuItems.Provider>
+      </SetNavMenuIsOpen.Provider>
+    </NavMenuIsOpen.Provider>
   );
 }
 
-export const useNavMenu = () => useContext(NavMenu);
-export const useSetNavMenu = () => useContext(SetNavMenu);
+export const useNavMenuIsOpen = () => useContext(NavMenuIsOpen);
+export const useSetNavMenuIsOpen = () => useContext(SetNavMenuIsOpen);
+export const useNavMenuItems = () => useContext(NavMenuItems);
+export const useSetNavMenuItems = () => useContext(SetNavMenuItems);

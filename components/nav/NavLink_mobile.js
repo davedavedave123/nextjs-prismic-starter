@@ -7,7 +7,7 @@ import { useRouter } from 'next/router';
 import animate from '../../utils/animate';
 
 // context
-import { useNavMenu, useSetNavMenu } from '../../context/navMenu';
+import { useSetNavMenuIsOpen } from '../../context/navMenu';
 import {
   useSetSubMenuIsOpen,
   useSetSubMenuItems,
@@ -19,7 +19,7 @@ export default function NavLink({
   // openSubMenu,
   // closeSubMenu,
 }) {
-  const setMenuOpen = useSetNavMenu();
+  const setMenuOpen = useSetNavMenuIsOpen();
   const setSubMenuIsOpen = useSetSubMenuIsOpen();
   const setSubMenuItems = useSetSubMenuItems();
   const router = useRouter();

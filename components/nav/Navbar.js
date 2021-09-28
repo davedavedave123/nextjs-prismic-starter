@@ -2,17 +2,17 @@ import React, { forwardRef, useEffect, useRef } from 'react';
 
 import useBreakPoints from '../../hooks/useBreakPoints';
 import BurgerBtn from '../BurgerBtn';
-import { useNavMenu, useSetNavMenu } from '../../context/navMenu';
+import {
+  useNavMenuIsOpen,
+  useNavMenuItems,
+  useSetNavMenuIsOpen,
+} from '../../context/navMenu';
 import NavComponent from './NavComponent';
 import NavDropdownMenu from './NavDropdownMenu';
 
 import NavLink from './NavLink';
-// import navItems from '../../config/navItems';
 import BrandLogo from '../BrandLogo';
 import NavMenu_mobile from './NavMenu_mobile';
-
-// adapters
-import { twoLevelMenu_adapter } from '../../adapters/twoLevelMenu_adapter';
 
 /**
  * Exects data as:
@@ -39,10 +39,10 @@ export default function Navbar({
   twoLevelMenu,
 }) {
   const { isLgDown } = useBreakPoints();
-  const menuOpen = useNavMenu();
-  const setMenuOpen = useSetNavMenu();
+  const menuOpen = useNavMenuIsOpen();
+  const setMenuOpen = useSetNavMenuIsOpen();
 
-  const navItems = twoLevelMenu_adapter(twoLevelMenu);
+  const navItems = useNavMenuItems();
 
   return (
     <>

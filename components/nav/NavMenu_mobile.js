@@ -5,7 +5,7 @@ import { gsap } from 'gsap';
 import NavSubMenu_Mobile from './NavSubMenu_mobile';
 import NavComponent from './NavComponent';
 // import navItems from '../../config/navItems';
-import { useNavMenu } from '../../context/navMenu';
+import { useNavMenuIsOpen } from '../../context/navMenu';
 import animate from '../../utils/animate';
 import NavLink_Mobile from './NavLink_mobile';
 import {
@@ -14,7 +14,7 @@ import {
 } from '../../context/SubMenu_mobile';
 
 export default function NavMobileMenu({ navItems }) {
-  const menuOpen = useNavMenu();
+  const menuOpen = useNavMenuIsOpen();
   const subMenuIsOpen = useSubMenuIsOpen();
   const navWrapper = useRef(null);
   const navItemsRef = useRef(null);
