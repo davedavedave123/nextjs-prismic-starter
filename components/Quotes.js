@@ -3,15 +3,18 @@ import Quote from './Quote';
 
 const QUOTES = [
   {
-    body: 'this is a quote. A very long long quote. this is a quote. A very long long quote. this is a quote. A very long long quote.',
+    body:
+      'this is a quote. A very long long quote. this is a quote. A very long long quote. this is a quote. A very long long quote.',
     author: 'someone',
   },
   {
-    body: 'this is a quote. A very long long quote. this is a quote. A very long long quote. this is a quote. A very long long quote.',
+    body:
+      'this is a quote. A very long long quote. this is a quote. A very long long quote. this is a quote. A very long long quote.',
     author: 'someone',
   },
   {
-    body: 'this is a quote. A very long long quote. this is a quote. A very long long quote. this is a quote. A very long long quote.',
+    body:
+      'this is a quote. A very long long quote. this is a quote. A very long long quote. this is a quote. A very long long quote.',
     author: 'someone',
   },
 ];
@@ -27,7 +30,7 @@ export default function Quotes({ className }) {
           body={quote.body}
           author={quote.author}
           small
-          className='px-20 py-10'
+          className='px-20 py-10 anim-up'
         />
       ))}
     </section>
