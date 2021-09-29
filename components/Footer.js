@@ -6,6 +6,7 @@ import contact from '../config/contact';
 import NavComponent from './nav/NavComponent';
 import navItems from '../config/navItems';
 import ContactForm from './ContactForm';
+import { useNavMenuItems } from '../context/navMenu';
 
 const Link = ({ item, aClassName, ...otherProps }) => {
   if (item?.title)
@@ -82,16 +83,20 @@ const Contact = () => {
   );
 };
 
-const Links = () => (
-  <div className='flex flex-col justify-center pb-10 my-10 border-b border-gray-300 lg:border-0 lg:block'>
-    <NavComponent
-      keyPrefix='footer-links'
-      renderItem={({ item }) => <Link item={item} aClassName='text-2xl' />}
-      data={navItems}
-      liClassName='my-4 '
-    />
-  </div>
-);
+const Links = () => {
+  const navItems = useNavMenuItems();
+
+  return (
+    <div className='flex flex-col justify-center pb-10 my-10 border-b border-gray-300 lg:border-0 lg:block'>
+      <NavComponent
+        keyPrefix='footer-links'
+        renderItem={({ item }) => <Link item={item} aClassName='text-2xl' />}
+        data={navItems}
+        liClassName='my-4 '
+      />
+    </div>
+  );
+};
 
 const SocialLink = ({ icon, to }) => {
   if (!to) return null;
