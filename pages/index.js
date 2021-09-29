@@ -1,19 +1,22 @@
-import Head from 'next/head';
-import { useEffect, useState } from 'react';
+import { useEffect, useMemo, useState } from 'react';
 
+// components
 import PhotoModal from '../components/PhotoModal';
 import Services from '../components/Services';
 import ImageWithText from '../components/ImageWithText1';
 import ImageWithText2 from '../components/ImageWithText2';
 import Contact from '../components/Contact';
-
 import Layout from '../components/Layout';
-
 import Button from '../components/Button';
 import Cards from '../components/Cards';
-import animateOnScroll from '../utils/animateOnScroll';
 import ImageCover from '../components/ImageCover';
 import BlogLinks from '../components/BlogLinks';
+import Quote from '../components/Quote';
+import Quotes from '../components/Quotes';
+
+// other
+import animateOnScroll from '../utils/animateOnScroll';
+import { useSetPageMetadata } from '../context/pageMetadata';
 
 const images = [
   // {src: '/images/GOPR9291.jpg', alt: 'rock arch', width: 3000, height: 2250},
@@ -56,6 +59,13 @@ const Hero = () => {
 
 export default function Home() {
   const [photoModalVisible, setPhotoModalVisible] = useState(false);
+  const setPageMetadata = useSetPageMetadata();
+
+  const metadata = {
+    title: 'Some page title',
+    description: 'some page description',
+  };
+  setPageMetadata(metadata);
 
   useEffect(() => {
     animateOnScroll();
@@ -63,15 +73,6 @@ export default function Home() {
 
   return (
     <Layout>
-      <Head>
-        <title>Next.js Starter Site</title>
-        <meta
-          name='description'
-          content='A Next.js boilerplate all set up to quickly and efficiently build websites from.'
-        />
-        <link rel='icon' href='/favicon.ico' />
-      </Head>
-
       <div className='w-full flex flex-col justify-center items-center'>
         <Hero />
         <button onClick={() => setPhotoModalVisible(true)}>Show Photos</button>
@@ -135,13 +136,13 @@ export default function Home() {
             data-animdelay={0.4}
           />
         </ImageWithText2>
-        {/* <Quote
+        <Quote
           body='this is a quote. A very long long quote. this is a quote. A very long long quote. this is a quote. A very long long quote. '
           author='Guy Someone'
           className='p-5'
         />
 
-        <Quotes className='px-10' /> */}
+        <Quotes className='px-10' />
 
         {/* <div className='parallax w-full h-screen relative z-0'>
           <Image src='/images/GOPR9304.jpg' layout='fill' objectFit='cover' />
