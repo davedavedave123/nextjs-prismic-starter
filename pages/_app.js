@@ -32,13 +32,13 @@ const Wrapper = ({ Component, pageProps, props }) => {
   }, [props.twoLevelMenu]);
 
   return (
-    <>
+    <div className='w-screen relative'>
       {/* <Navbar /> */}
       {/* <div className={`w-screen ${navMenuOpen && ''}`}> */}
       <Component {...pageProps} />
       {/* <Footer /> */}
       {/* </div> */}
-    </>
+    </div>
   );
 };
 
