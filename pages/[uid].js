@@ -7,29 +7,32 @@ import {
 } from 'next-slicezone/hooks';
 import { RichText } from 'prismic-reactjs';
 
+// components
+import Layout from '../components/Layout';
+import { NavbarPadder } from '../components/nav/Navbar';
+import MaxWidth from '../components/MaxWidth';
+
 export default function Page(props) {
   const { data } = props;
 
   return (
-    <div
-      className=''
-      style={{
-        width: '100vw',
-        backgroundColor: 'white',
-        padding: '20px 100px',
-      }}
-    >
-      <RichText render={data?.page_title} />
-      <RichText render={data?.text} />
-      <>
-        {/* <SliceZone {...props} resolver={resolver} /> */}
-        <script
-          async
-          defer
-          src='https://static.cdn.prismic.io/prismic.js?new=true&repo=tropics-nextjs-test'
-        ></script>
-      </>
-    </div>
+    <Layout className='prismic-page'>
+      <MaxWidth className='prismic-page'>
+        <NavbarPadder />
+        {/* <div style={{ maxWidth: 800, margin: '0 auto' }}> */}
+        <RichText render={data?.page_title} />
+        {/* </div> */}
+        <RichText render={data?.text} />
+        <>
+          {/* <SliceZone {...props} resolver={resolver} /> */}
+          <script
+            async
+            defer
+            src='https://static.cdn.prismic.io/prismic.js?new=true&repo=tropics-nextjs-test'
+          ></script>
+        </>
+      </MaxWidth>
+    </Layout>
   );
 }
 

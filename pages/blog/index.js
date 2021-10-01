@@ -4,6 +4,7 @@ import { Client } from '../../utils/prismicHelpers';
 
 // components
 import BlogLink from '../../components/blog/BlogLink';
+import Layout from '../../components/Layout';
 
 export default function BlogIndex(props) {
   useEffect(() => {
@@ -11,13 +12,15 @@ export default function BlogIndex(props) {
   }, []);
 
   return (
-    <div className='w-full relative'>
+    // <div className='w-full relative'>
+    <Layout className=''>
       <div className='max-w-7xl relative pt-20 mx-auto'>
         {props.blogs.map((blog, index) => (
           <BlogLink key={`blog-link-${index}`} blog={blog} index={index} />
         ))}
       </div>
-    </div>
+    </Layout>
+    // {/* </div> */}
   );
 }
 

@@ -3,13 +3,14 @@ import { useGetStaticPaths as makeGetStaticPaths } from 'next-slicezone/hooks';
 import { RichText } from 'prismic-reactjs';
 import Prismic from '@prismicio/client';
 import SliceZone from 'next-slicezone';
+import Image from 'next/image';
 
 import resolver from '../../sm-resolver';
 import RelatedPosts from '../../components/blog/RelatedPosts';
 import { Client } from '../../utils/prismicHelpers';
 import Gallery from '../../components/blog/Gallery';
-import ImageCover from '../../components/ImageCover';
-import ImageCover_prisimic from '../../components/ImageCover_prismic';
+import Layout from '../../components/Layout';
+import MaxWidth from '../../components/MaxWidth';
 
 export default function BlogPage(props) {
   const { data } = props;
@@ -18,34 +19,36 @@ export default function BlogPage(props) {
   const sliceProps = { ...props };
   sliceProps.slices = props.data.body;
 
-  useEffect(() => {
-    console.log('blog props', props);
-    console.log('blog sliceProps', sliceProps);
-  }, []);
-
   return (
-    <div className='w-full px-5'>
-      <div className='max-w-7xl mx-auto'>
-        <article className='pt-20'>
+    <Layout>
+      <MaxWidth>
+        <article className='pt-20 prismic-page'>
           <h1 className='py-10'>{RichText.asText(data.title)}</h1>
 
-          <div className='py-14'>
-            <ImageCover image={data.featured_image} responsive />
-          </div>
+          <Image
+            src={data.featured_image.url}
+            width={data.featured_image.dimensions.width}
+            height={data.featured_image.dimensions.height}
+            layout='responsive'
+          />
+
           <div className='py-14 text-lg'>
             <RichText render={data.content} />
           </div>
+
           <Gallery gallery={data.gallery} />
-          <SliceZone {...sliceProps} resolver={resolver} />
+
           <script
             async
             defer
             src='https://static.cdn.prismic.io/prismic.js?new=true&repo=tropics-nextjs-test'
           ></script>
         </article>
+      </MaxWidth>
+      <div className='mx-auto' style={{ maxWidth: 1300 }}>
         <RelatedPosts posts={props.taggedArticles} />
       </div>
-    </div>
+    </Layout>
   );
 }
 
