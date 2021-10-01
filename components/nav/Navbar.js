@@ -1,4 +1,11 @@
-import React, { forwardRef, useEffect, useRef } from 'react';
+import React, {
+  forwardRef,
+  useEffect,
+  useRef,
+  createContext,
+  useContext,
+  useMemo,
+} from 'react';
 
 import useBreakPoints from '../../hooks/useBreakPoints';
 import BurgerBtn from '../BurgerBtn';
@@ -13,6 +20,12 @@ import NavDropdownMenu from './NavDropdownMenu';
 import NavLink from './NavLink';
 import BrandLogo from '../BrandLogo';
 import NavMenu_mobile from './NavMenu_mobile';
+
+// context
+import {
+  useSetNavbarHeight,
+  useNavbarHeight,
+} from '../../context/navbarHeight';
 
 /**
  * Exects data as:
@@ -43,6 +56,16 @@ export default function Navbar({
   const setMenuOpen = useSetNavMenuIsOpen();
 
   const navItems = useNavMenuItems();
+  const setNavbarHeight = useSetNavbarHeight();
+
+  const navbarRef = useRef(null);
+
+  useMemo(() => {
+    if (navbarRef?.current) {
+      const rect = navbarRef?.current.getBoundingClientRect();
+      setNavbarHeight(rect.height);
+    }
+  }, [navbarRef]);
 
   return (
     <>
@@ -50,6 +73,7 @@ export default function Navbar({
       <div
         style={{ ...style_nav }}
         className={`border-b border-black fixed z-40 top-0 left-0 w-full flex items-center justify-between ${navClassName}`}
+        ref={navbarRef}
       >
         {/* Brand logo */}
         <div className='relative pl-5'>
@@ -83,6 +107,13 @@ export default function Navbar({
     </>
   );
 }
+
+export const NavbarPadder = () => {
+  const navbarHeight = useNavbarHeight();
+
+  return <div className='w-full=' style={{ height: navbarHeight }} />;
+};
+
 const styles = {
   li: {
     padding: '5px 0',
