@@ -1,0 +1,25 @@
+{
+  "Main" : {
+    "menu_items" : {
+      "type" : "Group",
+      "config" : {
+        "fields" : {
+          "title" : {
+            "type" : "Text",
+            "config" : {
+              "label" : "Title"
+            }
+          },
+          "link" : {
+            "type" : "Link",
+            "config" : {
+              "label" : "Link",
+              "select" : null
+            }
+          }
+        },
+        "label" : "Menu Items"
+      }
+    }
+  }
+}
