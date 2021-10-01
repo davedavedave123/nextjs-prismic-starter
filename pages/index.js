@@ -39,13 +39,14 @@ const Hero = () => {
         />
       </div>
       <div className='w-3/4 h-3/4 relative z-10'>
-        <p className='text-orange'>
+        <p className='relative text-orange'>
           Small little message before the big kicker.
         </p>
-        <h1 className=''>Big brand message</h1>
-        <h3 className='max-w-3xl'>
+        <h1 className='relative'>Big brand message</h1>
+        <h3 className='relative max-w-3xl'>
           Some other message, just a little smaller. We care about things.
         </h3>
+
         <Button
           title='CALL TO ACTION'
           spinner={spinner}
