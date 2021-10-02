@@ -1,0 +1,74 @@
+{
+  "Main" : {
+    "form_mail_to" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "Form Mail To",
+        "placeholder" : "Email to send form messages to"
+      }
+    },
+    "email" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "Email",
+        "placeholder" : "Display email (hello@company.com)"
+      }
+    },
+    "office_phone" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "Office Phone",
+        "placeholder" : "Office phone number"
+      }
+    },
+    "mobile" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "Mobile",
+        "placeholder" : "Mobile phone number"
+      }
+    },
+    "address_line_1" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "Address Line 1",
+        "placeholder" : "Address Line 1"
+      }
+    },
+    "address_line_2" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "Address Line 2",
+        "placeholder" : "Address Line 2"
+      }
+    },
+    "instagram" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "Instagram",
+        "placeholder" : "Instagram address"
+      }
+    },
+    "facebook" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "Facebook",
+        "placeholder" : "Facebook address"
+      }
+    },
+    "twitter" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "Twitter",
+        "placeholder" : "Twitter address"
+      }
+    },
+    "linkedin" : {
+      "type" : "Text",
+      "config" : {
+        "label" : "Linkedin",
+        "placeholder" : "Linkedin address"
+      }
+    }
+  }
+}

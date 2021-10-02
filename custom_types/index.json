@@ -23,4 +23,9 @@
   "name": "Page",
   "repeatable": true,
   "value": "page.json"
+}, {
+  "id": "contact_details",
+  "name": "Contact Details",
+  "repeatable": false,
+  "value": "contact_details.json"
 }]
