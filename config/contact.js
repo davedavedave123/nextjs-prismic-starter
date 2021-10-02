@@ -1,14 +1,14 @@
 export default {
   form: {
-    mailto: '***REMOVED***',
-    mailfrom: '***REMOVED***',
+    mailto: '****',
+    mailfrom: '****',
   },
   details: {
-    email: '***REMOVED***',
-    office: '***REMOVED***',
-    mobile: '***REMOVED***',
-    addressLine1: '34 Hope St',
-    addressLine2: 'Tauranga, 3164',
+    email: '****',
+    office: '****',
+    mobile: '****',
+    addressLine1: '****',
+    addressLine2: '****',
   },
   socials: {
     instagram: 'instagram.com',
