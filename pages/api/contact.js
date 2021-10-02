@@ -4,18 +4,19 @@ async function contactApi(req, res) {
   require('dotenv').config();
 
   const { fullName, message, email } = req.body;
+  const mailto = process.env.FORM_MAIL_TO;
+  const mailfrom = process.env.FORM_MAIL_FROM;
 
   const sgMail = require('@sendgrid/mail');
   sgMail.setApiKey(process.env.SENDGRID_API_KEY);
 
   const msg = {
-    to: contact.form.mailto,
-    from: contact.form.mailfrom,
+    to: mailto,
+    from: mailfrom,
     subject: `Contact form: ${fullName}`,
     text: `
     from: ${fullName}
     email: ${email}
-
     ${message}
     `,
     html: `
