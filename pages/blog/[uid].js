@@ -22,13 +22,17 @@ import { Client } from '../../utils/prismicHelpers';
 export default function BlogPage(props) {
   const { data } = props;
 
+  const galleryExists = data?.gallery[0]?.image?.url ? true : false;
+
   // unless you use useGetStaticProps, you need to create a slices array at root level in props for SliceZone
   const sliceProps = { ...props };
   sliceProps.slices = props.data.body;
 
   return (
     <Layout>
-      <PhotoModal images={getPhotoModalImages_adapter(data.gallery)} />
+      {galleryExists && (
+        <PhotoModal images={getPhotoModalImages_adapter(data.gallery)} />
+      )}
       <MaxWidth>
         <article className='pt-20 prismic-page'>
           <h1 className='py-10'>{RichText.asText(data.title)}</h1>
