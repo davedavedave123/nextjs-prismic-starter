@@ -7,6 +7,7 @@ import NavComponent from './nav/NavComponent';
 import navItems from '../config/navItems';
 import ContactForm from './ContactForm';
 import { useNavMenuItems } from '../context/navMenu';
+import { useContactDetails } from '../context/contactDetails';
 
 const Link = ({ item, aClassName, ...otherProps }) => {
   if (item?.title)
@@ -20,9 +21,10 @@ const Link = ({ item, aClassName, ...otherProps }) => {
   return null;
 };
 
-// MAKE ALL THESE INTO mailto tel and maps LINKS
 const Contact = () => {
-  const combinedAddress = `${contact?.details?.addressLine1} ${contact?.details?.addressLine2}`;
+  const contact = useContactDetails();
+
+  const combinedAddress = `${contact?.addressLine1} ${contact?.addressLine2}`;
   const addressLink = `http://maps.google.com/?q=${combinedAddress}`;
 
   return (
@@ -34,7 +36,7 @@ const Contact = () => {
         <div className='py-5'>
           <Link
             item={{
-              title: contact?.details?.addressLine1,
+              title: contact?.addressLine1,
               to: addressLink,
             }}
             aClassName='underline'
@@ -43,40 +45,36 @@ const Contact = () => {
           />
           <Link
             item={{
-              title: contact?.details?.addressLine2,
+              title: contact?.addressLine2,
               to: addressLink,
             }}
             aClassName='underline'
             target='_blank'
             rel='noreferrer'
           />
-          {/* <div>{contact?.details?.addressLine1}</div>
-        <div>{contact?.details?.addressLine2}</div> */}
         </div>
         <div>
           <Link
             item={{
-              title: contact?.details?.email,
-              to: `mailto:${contact?.details?.email}`,
+              title: contact?.email,
+              to: `mailto:${contact?.email}`,
             }}
             aClassName='underline'
           />
           <Link
             item={{
-              title: contact?.details?.office,
-              to: `tel:${contact?.details?.office}`,
+              title: contact?.office,
+              to: `tel:${contact?.office}`,
             }}
             aClassName='underline'
           />
           <Link
             item={{
-              title: contact?.details?.mobile,
-              to: `tel:${contact?.details?.mobile}`,
+              title: contact?.mobile,
+              to: `tel:${contact?.mobile}`,
             }}
             aClassName='underline'
           />
-          {/* <div>{contact?.details?.office}</div>
-        <div>{contact?.details?.mobile}</div> */}
         </div>
       </div>
     </div>
@@ -117,30 +115,22 @@ const SocialLink = ({ icon, to }) => {
   );
 };
 
-const Socials = () => (
-  <div className='flex flex-col pb-10 my-10 border-b border-gray-300 lg:border-0 lg:block'>
-    <div>
-      <h3>Follow us</h3>
+const Socials = () => {
+  const contact = useContactDetails();
 
-      <SocialLink
-        to={contact.socials.facebook}
-        icon='/icons/facebook-white.svg'
-      />
-      <SocialLink
-        to={contact.socials.instagram}
-        icon='/icons/instagram-white.svg'
-      />
-      <SocialLink
-        to={contact.socials.twitter}
-        icon='/icons/twitter-white.svg'
-      />
-      <SocialLink
-        to={contact.socials.linkedin}
-        icon='/icons/linkedin-white.svg'
-      />
+  return (
+    <div className='flex flex-col pb-10 my-10 border-b border-gray-300 lg:border-0 lg:block'>
+      <div>
+        <h3>Follow us</h3>
+
+        <SocialLink to={contact.facebook} icon='/icons/facebook-white.svg' />
+        <SocialLink to={contact.instagram} icon='/icons/instagram-white.svg' />
+        <SocialLink to={contact.twitter} icon='/icons/twitter-white.svg' />
+        <SocialLink to={contact.linkedin} icon='/icons/linkedin-white.svg' />
+      </div>
     </div>
-  </div>
-);
+  );
+};
 
 const MadeByLink = () => {
   return (

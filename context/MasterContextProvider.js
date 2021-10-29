@@ -4,6 +4,7 @@ import SubMenuProvider from './SubMenu_mobile';
 import PageMetadataProvider from './pageMetadata';
 import NavbarHeightProvider from './navbarHeight';
 import PhotoModalProvider from './photoModal';
+import ContactDetailsProvider from './contactDetails';
 
 export default function MasterContextProvider({ children }) {
   return (
@@ -11,7 +12,9 @@ export default function MasterContextProvider({ children }) {
       <SubMenuProvider>
         <PageMetadataProvider>
           <NavbarHeightProvider>
-            <PhotoModalProvider>{children}</PhotoModalProvider>
+            <PhotoModalProvider>
+              <ContactDetailsProvider>{children}</ContactDetailsProvider>
+            </PhotoModalProvider>
           </NavbarHeightProvider>
         </PageMetadataProvider>
       </SubMenuProvider>
