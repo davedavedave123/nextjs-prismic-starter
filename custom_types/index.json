@@ -14,11 +14,6 @@
   "repeatable": false,
   "value": "nav_menu.json"
 }, {
-  "id": "nav_menu_two_level",
-  "name": "Two Level Nav Menu",
-  "repeatable": false,
-  "value": "nav_menu_two_level.json"
-}, {
   "id": "page",
   "name": "Page",
   "repeatable": true,
