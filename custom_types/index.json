@@ -23,4 +23,9 @@
   "name": "Contact Details",
   "repeatable": false,
   "value": "contact_details.json"
+}, {
+  "id": "home_page",
+  "name": "Home Page",
+  "repeatable": false,
+  "value": "home_page.json"
 }]
