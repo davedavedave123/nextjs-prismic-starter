@@ -66,7 +66,7 @@ function MyApp({ Component, pageProps, props }) {
 
 MyApp.getInitialProps = async ctx => {
   const menu = (await Client().getSingle('menu')) || {};
-  const twoLevelMenu = (await Client().getSingle('two_level_menu')) || {};
+  const twoLevelMenu = (await Client().getSingle('nav_menu')) || {};
   const { props } = App.getInitialProps(ctx);
 
   return {
