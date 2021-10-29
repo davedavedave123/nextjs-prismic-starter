@@ -1,7 +1,21 @@
 import React from 'react';
 import GalleryImage from './GalleryImage';
 
+// context
+import {
+  useSetPhotoModalIsOpen,
+  useSetPhotoIndex,
+} from '../../context/photoModal';
+
 export default function Gallery({ gallery }) {
+  const setModalOpen = useSetPhotoModalIsOpen();
+  const setPhotoIndex = useSetPhotoIndex();
+
+  const handleImageClick = index => {
+    setModalOpen(true);
+    setPhotoIndex(index);
+  };
+
   if (gallery[0].image?.url)
     return (
       <div
@@ -14,6 +28,7 @@ export default function Gallery({ gallery }) {
           <GalleryImage
             key={`galleryImage-${index}`}
             galleryImage={galleryImage}
+            onClick={() => handleImageClick(index)}
           />
         ))}
       </div>

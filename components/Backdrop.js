@@ -8,23 +8,24 @@ import Modal from 'react-modal';
 const customStyles = {
   overlay: {
     backgroundColor: 'rgba(0,0,0,0.8)',
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
+    // display: 'flex',
+    // justifyContent: 'center',
+    // alignItems: 'center',
     zIndex: 3000,
     height: '100vh',
     width: '100vw',
   },
   content: {
-    // top: '50%',
-    // left: '50%',
-    // right: 'auto',
-    // bottom: 'auto',
-    // marginRight: '-50%',
-    // transform: 'translate(-50%, -50%)',
-    // width: 'auto',
-    // height: 'auto',
-    position: 'relative',
+    top: '50%',
+    left: '50%',
+    right: 'auto',
+    bottom: 'auto',
+    marginRight: '-50%',
+    transform: 'translate(-50%, -50%)',
+    width: '50%',
+    height: '50%',
+    position: 'absolute',
+    padding: 0,
   },
 };
 
@@ -41,6 +42,7 @@ const Backdrop = forwardRef(
       modalHeight,
       modalWrapperClass,
       modalWrapperStyle,
+      contentStyle,
     },
     ref
   ) => {
@@ -74,22 +76,22 @@ const Backdrop = forwardRef(
       );
     };
 
-    // useEffect(() => {
-    //   if (visible) setMounted(true);
-    //   if (!visible) close();
-    // }, [visible]);
+    useEffect(() => {
+      if (visible) setMounted(true);
+      if (!visible) close();
+    }, [visible]);
 
-    // useEffect(() => {
-    //   if (mounted) open();
-    // }, [mounted]);
+    useEffect(() => {
+      if (mounted) open();
+    }, [mounted]);
 
     useEffect(() => {
       window.addEventListener('click', handleBackdropClick);
       return () => window.removeEventListener('click', handleBackdropClick);
     }, []);
 
-    // if (!mounted) return null;
-    if (!visible) return null;
+    if (!mounted) return null;
+    // if (!visible) return null;
 
     return (
       <>
@@ -97,7 +99,15 @@ const Backdrop = forwardRef(
           isOpen={visible}
           onRequestClose={onBackdropClick}
           // style={{ ...customStyles, width: modalWidth, height: modalHeight }}
-          style={customStyles}
+          style={{
+            overlay: customStyles.overlay,
+            content: {
+              ...customStyles.content,
+              ...contentStyle,
+              width: modalWidth,
+              height: modalHeight,
+            },
+          }}
         >
           {/* <div
             style={{ ...styles.backdrop, ...style }}
@@ -112,22 +122,15 @@ const Backdrop = forwardRef(
           > */}
           {/* {children} */}
           {/* </div> */}
-          <div
+          {/* <div
             id={backdropId}
             className={`fixed top-0 left-0 w-screen h-screen ${modalWrapperClass}`}
             style={modalWrapperStyle}
-          >
-            {/* <div
-              style={{
-                // width: modalWidth,
-                // height: modalHeight,
-                ...modalWrapperStyle,
-              }}
-              className='w-full h-full'
-            > */}
-            {children}
-            {/* </div> */}
-          </div>
+          > */}
+
+          {children}
+
+          {/* </div> */}
         </Modal>
       </>
     );

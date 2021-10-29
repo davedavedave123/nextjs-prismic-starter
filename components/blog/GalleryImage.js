@@ -2,13 +2,25 @@ import React from 'react';
 import { RichText } from 'prismic-reactjs';
 
 import ImageCover from '../ImageCover';
+import useBreakPoints from '../../hooks/useBreakPoints';
 
 // expects
-export default function GalleryImage({ galleryImage }) {
+export default function GalleryImage({ galleryImage, onClick }) {
   const { caption, image } = galleryImage;
+  const { isSmUp } = useBreakPoints();
 
   return (
-    <div className='w-full h-full relative'>
+    <button
+      className={`w-full relative ${
+        isSmUp ? 'cursor-pointer' : 'cursor-default'
+      }`}
+      onClick={() => {
+        if (isSmUp) {
+          onClick();
+        }
+      }}
+      style={{ height: '50vh' }}
+    >
       <ImageCover
         image={image}
         // src={image.url}
@@ -16,7 +28,7 @@ export default function GalleryImage({ galleryImage }) {
         // height={image.dimensions.height}
         // width={image.dimensions.width}
       />
-      {caption && (
+      {caption.length > 0 && (
         <div
           className='absolute bottom-0 left-0 py-5 px-5 w-full z-10 text-white'
           style={{ backgroundColor: 'rgba(0,0,0,0.5)' }}
@@ -24,6 +36,6 @@ export default function GalleryImage({ galleryImage }) {
           <RichText render={caption} />
         </div>
       )}
-    </div>
+    </button>
   );
 }

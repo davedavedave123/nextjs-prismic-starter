@@ -5,15 +5,24 @@ import Prismic from '@prismicio/client';
 import SliceZone from 'next-slicezone';
 import Image from 'next/image';
 
-import resolver from '../../sm-resolver';
+//components
 import RelatedPosts from '../../components/blog/RelatedPosts';
-import { Client } from '../../utils/prismicHelpers';
 import Gallery from '../../components/blog/Gallery';
 import Layout from '../../components/Layout';
 import MaxWidth from '../../components/MaxWidth';
+import PhotoModal from '../../components/PhotoModal';
+
+// adapters
+import getPhotoModalImages_adapter from '../../adapters/getPhotoModalImages_adapter';
+
+// other
+import resolver from '../../sm-resolver';
+import { Client } from '../../utils/prismicHelpers';
 
 export default function BlogPage(props) {
   const { data } = props;
+
+  const galleryExists = data?.gallery[0]?.image?.url ? true : false;
 
   // unless you use useGetStaticProps, you need to create a slices array at root level in props for SliceZone
   const sliceProps = { ...props };
@@ -21,6 +30,9 @@ export default function BlogPage(props) {
 
   return (
     <Layout>
+      {galleryExists && (
+        <PhotoModal images={getPhotoModalImages_adapter(data.gallery)} />
+      )}
       <MaxWidth>
         <article className='pt-20 prismic-page'>
           <h1 className='py-10'>{RichText.asText(data.title)}</h1>

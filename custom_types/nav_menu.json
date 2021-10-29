@@ -1,24 +1,88 @@
 {
   "Main" : {
-    "menu_items" : {
-      "type" : "Group",
+    "doc_name" : {
+      "type" : "StructuredText",
       "config" : {
-        "fields" : {
-          "title" : {
-            "type" : "Text",
-            "config" : {
-              "label" : "Title"
+        "single" : "heading1",
+        "label" : "Document name"
+      }
+    },
+    "nav" : {
+      "type" : "Slices",
+      "fieldset" : "Slice zone",
+      "config" : {
+        "labels" : null,
+        "choices" : {
+          "nav_item" : {
+            "type" : "Slice",
+            "fieldset" : "Nested Menu",
+            "description" : "Dropdown with sub links",
+            "icon" : "insert_link",
+            "display" : "list",
+            "non-repeat" : {
+              "label" : {
+                "type" : "StructuredText",
+                "config" : {
+                  "single" : "paragraph",
+                  "label" : "Label",
+                  "placeholder" : "Enter Link Label..."
+                }
+              },
+              "link" : {
+                "type" : "Link",
+                "config" : {
+                  "label" : "Link",
+                  "placeholder" : "Select Link...",
+                  "select" : null
+                }
+              }
+            },
+            "repeat" : {
+              "sub_nav_link_label" : {
+                "type" : "StructuredText",
+                "config" : {
+                  "single" : "paragraph",
+                  "label" : "Sub Nav Link Label",
+                  "placeholder" : "Enter Sub Nav Link Label..."
+                }
+              },
+              "sub_nav_link" : {
+                "type" : "Link",
+                "config" : {
+                  "label" : "Sub Nav Link",
+                  "placeholder" : "Select Sub Nav Link...",
+                  "select" : null
+                }
+              }
             }
           },
-          "link" : {
-            "type" : "Link",
-            "config" : {
-              "label" : "Link",
-              "select" : null
-            }
+          "nav_item1" : {
+            "type" : "Slice",
+            "fieldset" : "Nav Link",
+            "description" : "Single Link",
+            "icon" : "insert_link",
+            "display" : "list",
+            "non-repeat" : {
+              "label" : {
+                "type" : "StructuredText",
+                "config" : {
+                  "single" : "paragraph",
+                  "label" : "Label",
+                  "placeholder" : "Link Label"
+                }
+              },
+              "link" : {
+                "type" : "Link",
+                "config" : {
+                  "label" : "Link",
+                  "placeholder" : "Link",
+                  "select" : null
+                }
+              }
+            },
+            "repeat" : { }
           }
-        },
-        "label" : "Menu Items"
+        }
       }
     }
   }
