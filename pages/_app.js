@@ -12,6 +12,7 @@ import Footer from '../components/Footer';
 
 // context and config
 import MasterContextProvider from '../context/MasterContextProvider';
+import { useSetContactDetails } from '../context/contactDetails';
 import navItems from '../config/navItems';
 
 // hooks
@@ -24,6 +25,13 @@ import * as ga from '../lib/ga';
 const Wrapper = ({ Component, pageProps, props }) => {
   const navMenuOpen = useNavMenuIsOpen();
   const setNavMenuItems = useSetNavMenuItems();
+  const setContactDetails = useSetContactDetails();
+
+  // STORE CONTACT DETAILS IN CONTEXT
+  useEffect(() => {
+    console.log('props.contactDetails', props.contactDetails);
+    setContactDetails(props.contactDetails);
+  }, [props.contactDetails]);
 
   // Store nav items in context
   useEffect(() => {
@@ -67,10 +75,16 @@ function MyApp({ Component, pageProps, props }) {
 MyApp.getInitialProps = async ctx => {
   const menu = (await Client().getSingle('menu')) || {};
   const twoLevelMenu = (await Client().getSingle('nav_menu')) || {};
+  const contactDetails = await Client().getSingle('contact_details');
   const { props } = App.getInitialProps(ctx);
 
   return {
-    props: { ...props, menu, twoLevelMenu },
+    props: {
+      ...props,
+      menu,
+      twoLevelMenu,
+      contactDetails: contactDetails?.data || {},
+    },
   };
 };
 
