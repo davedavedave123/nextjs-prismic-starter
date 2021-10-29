@@ -28,7 +28,7 @@ export default function GalleryImage({ galleryImage, onClick }) {
         // height={image.dimensions.height}
         // width={image.dimensions.width}
       />
-      {caption && (
+      {caption.length > 0 && (
         <div
           className='absolute bottom-0 left-0 py-5 px-5 w-full z-10 text-white'
           style={{ backgroundColor: 'rgba(0,0,0,0.5)' }}
